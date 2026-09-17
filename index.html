@@ -58,6 +58,11 @@
     flex: 1;
   }
   .note .placeholder { color: #aaa; }
+  .note .title {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
 </style>
 </head>
 <body>
@@ -70,13 +75,13 @@
 <script>
 // ==================== 数据配置 ====================
 // 新增内容时在这里添加，页面上文件夹按数组顺序显示（新的放前面即可）
-// 结构：{ folder: "文件夹名", images: [{ file: "文件名", note: "备注" }] }
+// 结构：{ folder: "文件夹名", images: [{ file: "文件名", title: "标题", note: "备注" }] }
 const DATA = [
   {
     folder: "2026917",
     images: [
-      { file: "点绝张对对.png", note: "2m点对对。选择下车就不要报侥幸心理，23s顺切下车" },
-      { file: "牌效.png", note: "牌效错误，唯一5p。有27s进张" },
+      { file: "点绝张对对.png", title: "点绝张对对", note: "2m点对对。选择下车就不要报侥幸心理，23s顺切下车" },
+      { file: "牌效.png", title: "牌效", note: "牌效错误，唯一5p。有27s进张" },
     ],
   },
 ];
@@ -88,12 +93,15 @@ const esc = s => s.replace(/[&<>"']/g, c =>
 
 for (const { folder, images } of DATA) {
   const section = document.createElement("section");
-  const cards = images.map(({ file, note }) => `
+  const cards = images.map(({ file, title, note }) => `
     <div class="card">
       <a href="${esc(folder)}/${esc(file)}" target="_blank" title="${esc(file)}">
         <img src="${esc(folder)}/${esc(file)}" alt="${esc(file)}" loading="lazy">
       </a>
-      <div class="note">${note ? esc(note) : '<span class="placeholder">（暂无备注）</span>'}</div>
+      <div class="note">
+        <div class="title">${title ? esc(title) : '<span class="placeholder">（无标题）</span>'}</div>
+        ${note ? esc(note) : '<span class="placeholder">（暂无备注）</span>'}
+      </div>
     </div>`).join("");
   section.innerHTML = `<h2>${esc(folder)}</h2><div class="grid">${cards}</div>`;
   app.appendChild(section);
