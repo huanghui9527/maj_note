@@ -1,42 +1,26 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>麻将笔记 · maj_note</title>
+---
+layout: default
+title: 麻将笔记
+---
+
 <style>
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
-    background: #f5f6f8;
-    color: #222;
-  }
-  header {
-    padding: 20px 24px;
-    background: #1f2430;
-    color: #fff;
-  }
-  header h1 { margin: 0; font-size: 22px; }
-  header p { margin: 4px 0 0; opacity: .6; font-size: 13px; }
-  main { max-width: 1200px; margin: 0 auto; padding: 24px; }
-  section { margin-bottom: 36px; }
-  section > h2 {
-    font-size: 16px;
-    margin: 0 0 12px;
+  #app section { margin-bottom: 36px; }
+  #app section > h2 {
+    font-size: 18px;
+    margin: 28px 0 12px;
     padding-left: 10px;
     border-left: 4px solid #5b7bd5;
   }
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 16px;
   }
   .card {
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    box-shadow: 0 1px 4px rgba(0,0,0,.15);
     transition: transform .15s;
     display: flex;
     flex-direction: column;
@@ -64,13 +48,8 @@
     margin-bottom: 4px;
   }
 </style>
-</head>
-<body>
-<header>
-  <h1>麻将笔记</h1>
-  <p>按文件夹归档的对局截图与备注</p>
-</header>
-<main id="app"></main>
+
+<div id="app"></div>
 
 <script>
 // ==================== 数据配置 ====================
@@ -107,5 +86,3 @@ for (const { folder, images } of DATA) {
   app.appendChild(section);
 }
 </script>
-</body>
-</html>
