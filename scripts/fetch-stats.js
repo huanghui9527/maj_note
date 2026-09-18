@@ -13,6 +13,8 @@ const PLAYER_URL = 'https://amae-koromo.sapk.ch/player/17417542/12';
     userAgent:
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
     viewport: { width: 1280, height: 800 },
+    locale: 'zh-CN', // 无头默认 en-US，页面会渲染英文界面导致中文标签匹配不到
+    extraHTTPHeaders: { 'Accept-Language': 'zh-CN,zh;q=0.9' },
   });
 
   const captured = [];
@@ -38,53 +40,64 @@ const PLAYER_URL = 'https://amae-koromo.sapk.ch/player/17417542/12';
   }
   await page.waitForTimeout(5000); // 等剩余 API 响应到齐
 
-  // 直接取页面"记录等级"右侧的文本（页面前端已渲染好段位名，无需自己映射）
+  // 取页面"记录等级"标签右侧的文本（页面前端已渲染好段位名，无需自己映射）
   const { pageLevel, debug } = await page.evaluate(() => {
     const clean = s => (s || '').replace(/\s+/g, ' ').trim();
     const result = { pageLevel: '', debug: '' };
 
-    // 方式一：DOM 中找包含"记录等级"的元素，取其右侧/后续兄弟的文本
-    const els = [...document.querySelectorAll('*')];
-    const label = els.find(e =>
-      e.children.length === 0 && e.textContent.includes('记录等级'));
+    // 找段位标签（兼容中英文界面）
+    const labelRe = /^(记录等级|段位|等级|Rank|Level)$/i;
+    const label = [...document.querySelectorAll('td,th,span,div,dt')].find(e =>
+      !e.children.length && labelRe.test(clean(e.textContent)));
+
     if (label) {
-      // 同层级右侧兄弟
-      const sib = label.parentElement;
-      let value = '';
-      if (sib) {
-        // 值可能就是父容器的其他子元素，或父容器整体文本去掉标签
-        const sibText = clean(sib.textContent).replace('记录等级', '').trim();
-        if (sibText && sibText.length <= 30) value = sibText;
-        // 或父容器的下一个兄弟元素
-        if (!value && sib.nextElementSibling) {
-          value = clean(sib.nextElementSibling.textContent);
+      result.debug += '[DOM] 标签: <' + label.tagName + '> "' + clean(label.textContent) + '"\n';
+      const row = label.closest('tr');
+      if (row) {
+        // 标签在表格里 → 取同行下一个单元格（值可能是文本或徽章图片）
+        const cells = [...row.children];
+        const cell = label.closest('td,th') || label;
+        const next = cells[cells.indexOf(cell) + 1];
+        if (next) {
+          let v = clean(next.textContent);
+          if (!v) {
+            const img = next.querySelector('img');
+            if (img) v = img.alt || img.title || '';
+          }
+          if (v) result.pageLevel = v;
         }
+        result.debug += '[DOM] 行内容: ' + cells.map(c => clean(c.textContent)).join(' | ') + '\n';
       }
-      if (value) result.pageLevel = value;
-      result.debug += '[DOM] label outerHTML: ' + label.outerHTML.slice(0, 200) + '\n';
-      result.debug += '[DOM] parent outerHTML: ' + (sib ? sib.outerHTML.slice(0, 400) : '(无)') + '\n';
+      // 不在表格里 → 取标签父元素的下一个兄弟元素
+      if (!result.pageLevel && label.parentElement && label.parentElement.nextElementSibling) {
+        result.pageLevel = clean(label.parentElement.nextElementSibling.textContent);
+      }
     } else {
-      result.debug += '[DOM] 未找到含"记录等级"的叶子元素\n';
+      result.debug += '[DOM] 未找到段位标签（记录等级/段位/等级/Rank/Level）\n';
     }
 
-    // 方式二：兜底，整页文本中"记录等级"后面的一段（不依赖换行，取 60 字符窗口）
+    // 兜底：整页文本匹配
     if (!result.pageLevel) {
       const text = document.body.innerText || '';
-      const i = text.indexOf('记录等级');
-      if (i >= 0) {
-        const after = text.slice(i + 4, i + 64); // "记录等级"后 60 字符
-        result.debug += '[TEXT] 后续文本: ' + JSON.stringify(after) + '\n';
-        const m = after.match(/^\s*[：:•\-]?\s*([^\s]{1,20})/);
-        if (m) result.pageLevel = clean(m[1]);
+      const m = text.match(/(?:记录等级|段位|等级|Rank|Level)\s*[：:]?\s*([^\n\t]{1,20})/i);
+      if (m) {
+        result.pageLevel = clean(m[1]);
+        result.debug += '[TEXT] 匹配到: ' + JSON.stringify(m[0]) + '\n';
       } else {
-        result.debug += '[TEXT] 整页文本中无"记录等级"字样\n';
-        result.debug += '[TEXT] 页面文本前 500 字符: ' + JSON.stringify(text.slice(0, 500)) + '\n';
+        result.debug += '[TEXT] 无匹配\n';
       }
     }
+
+    // 调试：输出可能的段位徽章图片（段位若是纯图片无文本，从这里找线索）
+    const imgs = [...document.querySelectorAll('img')].slice(0, 30)
+      .map(i => ({ alt: i.alt || '', title: i.title || '', src: (i.src || '').split('/').pop() }))
+      .filter(i => i.alt || i.title || /rank|level/i.test(i.src));
+    if (imgs.length) result.debug += '[IMG] ' + JSON.stringify(imgs) + '\n';
+
     return result;
   });
   console.log('页面显示的段位: ' + (pageLevel || '（未识别）'));
-  if (!pageLevel) console.log('---- 调试信息 ----\n' + debug);
+  console.log('---- 调试信息 ----\n' + debug);
 
   await browser.close();
 
