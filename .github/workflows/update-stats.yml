@@ -1,0 +1,41 @@
+name: Update Mahjong Soul Stats
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # 每 6 小时（UTC 时间）
+  workflow_dispatch: {}     # 支持在 Actions 页面手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: |
+          npm init -y >/dev/null
+          npm install playwright >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null 2>&1
+
+      - name: Fetch stats
+        run: node scripts/fetch-stats.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stats.json
+          if git diff --cached --quiet; then
+            echo "stats.json 无变化，跳过提交"
+          else
+            git commit -m "chore: update mahjong soul stats"
+            git push
+          fi
