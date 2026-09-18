@@ -7,17 +7,6 @@ const fs = require('fs');
 // 目标玩家页面（mode 12 = 三人南）
 const PLAYER_URL = 'https://amae-koromo.sapk.ch/player/17417542/12';
 
-// 雀魂段位 ID -> 名称（major*100+minor：0=新人 1=级 2=段 3=豪杰 4+=魂天）
-function levelName(id) {
-  const major = Math.floor(id / 100);
-  const minor = id % 100;
-  if (major === 0) return '新人';
-  if (major === 1) return `${minor}级`;
-  if (major === 2) return `${minor}段`;
-  if (major === 3) return `豪杰${minor}`;
-  return '魂天';
-}
-
 (async () => {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({
@@ -49,6 +38,14 @@ function levelName(id) {
   }
   await page.waitForTimeout(5000); // 等剩余 API 响应到齐
 
+  // 直接从页面提取已渲染的段位文本（页面前端已把数字 id 显示为名称，无需自己映射）
+  const pageLevel = await page.evaluate(() => {
+    const text = document.body.innerText || '';
+    const m = text.match(/(新人|魂天|[1-9]0?级|初段|[一二三四五六七八九十]段|雀杰\s*[123]|雀豪\s*[123]|雀圣\s*[123])/);
+    return m ? m[1].replace(/\s+/g, '') : '';
+  });
+  console.log('页面显示的段位: ' + (pageLevel || '（未识别）'));
+
   await browser.close();
 
   console.log('捕获到的响应 URL:');
@@ -67,10 +64,10 @@ function levelName(id) {
     process.exit(1);
   }
 
-  const { id, score } = stats.body.level;
+  const { score } = stats.body.level;
   const out = {
     name: (extend && extend.body && extend.body.nickname) || '',
-    level: levelName(id),
+    level: pageLevel, // 页面直接显示的段位原文
     score: String(score),
     updated: new Date().toISOString(),
   };
