@@ -38,11 +38,22 @@ const PLAYER_URL = 'https://amae-koromo.sapk.ch/player/17417542/12';
   }
   await page.waitForTimeout(5000); // 等剩余 API 响应到齐
 
-  // 直接从页面提取已渲染的段位文本（页面前端已把数字 id 显示为名称，无需自己映射）
+  // 直接取页面"记录等级"右侧的文本（页面前端已渲染好段位名，无需自己映射）
   const pageLevel = await page.evaluate(() => {
-    const text = document.body.innerText || '';
-    const m = text.match(/(新人|魂天|[1-9]0?级|初段|[一二三四五六七八九十]段|雀杰\s*[123]|雀豪\s*[123]|雀圣\s*[123])/);
-    return m ? m[1].replace(/\s+/g, '') : '';
+    const clean = s => (s || '').replace(/\s+/g, '');
+    // 方式一：在 DOM 中找"记录等级"标签，取同行右侧单元格的文本
+    const els = [...document.querySelectorAll('td, th, span, div')];
+    const label = els.find(e => !e.children.length && clean(e.textContent) === '记录等级');
+    if (label) {
+      const row = label.closest('tr') || label.parentElement;
+      const cells = [...row.children];
+      const value = cells.slice(cells.indexOf(label) + 1)
+        .map(c => clean(c.textContent)).filter(Boolean).join(' ');
+      if (value) return value;
+    }
+    // 方式二：兜底，从整页文本中匹配"记录等级"后面的内容
+    const m = (document.body.innerText || '').match(/记录等级[：:\s]*([^\n]+)/);
+    return m ? clean(m[1]) : '';
   });
   console.log('页面显示的段位: ' + (pageLevel || '（未识别）'));
 
