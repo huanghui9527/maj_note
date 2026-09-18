@@ -40,20 +40,23 @@ const PLAYER_URL = 'https://amae-koromo.sapk.ch/player/17417542/12';
   }
   await page.waitForTimeout(5000); // 等剩余 API 响应到齐
 
-  // 取页面"记录等级"标签右侧的文本（页面前端已渲染好段位名，无需自己映射）
-  const { pageLevel, debug } = await page.evaluate(() => {
+  // 取页面"记录等级"/"记录分数"标签右侧的文本（页面前端已渲染好，无需自己换算映射）
+  const { pageLevel, pageScore, debug } = await page.evaluate(() => {
     const clean = s => (s || '').replace(/\s+/g, ' ').trim();
-    const result = { pageLevel: '', debug: '' };
+    const result = { pageLevel: '', pageScore: '', debug: '' };
 
-    // 找"记录等级"标签（精确匹配，避免误匹配其他含"等级"的字段）
-    const label = [...document.querySelectorAll('td,th,span,div,dt')].find(e =>
-      !e.children.length && clean(e.textContent) === '记录等级');
-
-    if (label) {
-      result.debug += '[DOM] 标签: <' + label.tagName + '> "' + clean(label.textContent) + '"\n';
+    // 通用：找指定标签（精确匹配），取右侧同行/兄弟元素的文本
+    const extract = (labelText) => {
+      const label = [...document.querySelectorAll('td,th,span,div,dt')].find(e =>
+        !e.children.length && clean(e.textContent) === labelText);
+      if (!label) {
+        result.debug += '[DOM] 未找到"' + labelText + '"标签\n';
+        return '';
+      }
+      result.debug += '[DOM] 标签: <' + label.tagName + '> "' + labelText + '"\n';
+      // 表格行 → 取同行下一个单元格（值可能是文本或徽章图片）
       const row = label.closest('tr');
       if (row) {
-        // 标签在表格里 → 取同行下一个单元格（值可能是文本或徽章图片）
         const cells = [...row.children];
         const cell = label.closest('td,th') || label;
         const next = cells[cells.indexOf(cell) + 1];
@@ -63,29 +66,34 @@ const PLAYER_URL = 'https://amae-koromo.sapk.ch/player/17417542/12';
             const img = next.querySelector('img');
             if (img) v = img.alt || img.title || '';
           }
-          if (v) result.pageLevel = v;
+          if (v) return v;
         }
         result.debug += '[DOM] 行内容: ' + cells.map(c => clean(c.textContent)).join(' | ') + '\n';
       }
       // 不在表格里 → 取标签父元素的下一个兄弟元素
-      if (!result.pageLevel && label.parentElement && label.parentElement.nextElementSibling) {
-        result.pageLevel = clean(label.parentElement.nextElementSibling.textContent);
+      if (label.parentElement && label.parentElement.nextElementSibling) {
+        return clean(label.parentElement.nextElementSibling.textContent);
       }
-    } else {
-      result.debug += '[DOM] 未找到"记录等级"标签\n';
-    }
+      return '';
+    };
 
-    // 兜底：整页文本匹配"记录等级"右侧内容
-    if (!result.pageLevel) {
-      const text = document.body.innerText || '';
-      const m = text.match(/记录等级\s*[：:]?\s*([^\n\t]{1,20})/);
+    result.pageLevel = extract('记录等级');
+    result.pageScore = extract('记录分数');
+
+    // 兜底：整页文本匹配标签右侧内容
+    const text = document.body.innerText || '';
+    const fallback = (labelText, prev) => {
+      if (prev) return prev;
+      const m = text.match(new RegExp(labelText + '\\s*[：:]?\\s*([^\\n\\t]{1,20})'));
       if (m) {
-        result.pageLevel = clean(m[1]);
-        result.debug += '[TEXT] 匹配到: ' + JSON.stringify(m[0]) + '\n';
-      } else {
-        result.debug += '[TEXT] 无匹配\n';
+        result.debug += '[TEXT] "' + labelText + '" 匹配到: ' + JSON.stringify(m[0]) + '\n';
+        return clean(m[1]);
       }
-    }
+      result.debug += '[TEXT] "' + labelText + '" 无匹配\n';
+      return '';
+    };
+    result.pageLevel = fallback('记录等级', result.pageLevel);
+    result.pageScore = fallback('记录分数', result.pageScore);
 
     // 调试：输出可能的段位徽章图片（段位若是纯图片无文本，从这里找线索）
     const imgs = [...document.querySelectorAll('img')].slice(0, 30)
@@ -96,6 +104,7 @@ const PLAYER_URL = 'https://amae-koromo.sapk.ch/player/17417542/12';
     return result;
   });
   console.log('页面显示的段位: ' + (pageLevel || '（未识别）'));
+  console.log('页面显示的分数: ' + (pageScore || '（未识别）'));
   console.log('---- 调试信息 ----\n' + debug);
 
   await browser.close();
@@ -116,11 +125,10 @@ const PLAYER_URL = 'https://amae-koromo.sapk.ch/player/17417542/12';
     process.exit(1);
   }
 
-  const { score } = stats.body.level;
   const out = {
     name: (extend && extend.body && extend.body.nickname) || '',
-    level: pageLevel, // 页面直接显示的段位原文
-    score: String(score),
+    level: pageLevel || '',        // 页面直接显示的段位原文
+    score: pageScore || String(stats.body.level.score), // 优先页面显示的分数，API 兜底
     updated: new Date().toISOString(),
   };
 
