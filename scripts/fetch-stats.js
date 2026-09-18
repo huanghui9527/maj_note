@@ -45,10 +45,9 @@ const PLAYER_URL = 'https://amae-koromo.sapk.ch/player/17417542/12';
     const clean = s => (s || '').replace(/\s+/g, ' ').trim();
     const result = { pageLevel: '', debug: '' };
 
-    // 找段位标签（兼容中英文界面）
-    const labelRe = /^(记录等级|段位|等级|Rank|Level)$/i;
+    // 找"记录等级"标签（精确匹配，避免误匹配其他含"等级"的字段）
     const label = [...document.querySelectorAll('td,th,span,div,dt')].find(e =>
-      !e.children.length && labelRe.test(clean(e.textContent)));
+      !e.children.length && clean(e.textContent) === '记录等级');
 
     if (label) {
       result.debug += '[DOM] 标签: <' + label.tagName + '> "' + clean(label.textContent) + '"\n';
@@ -73,13 +72,13 @@ const PLAYER_URL = 'https://amae-koromo.sapk.ch/player/17417542/12';
         result.pageLevel = clean(label.parentElement.nextElementSibling.textContent);
       }
     } else {
-      result.debug += '[DOM] 未找到段位标签（记录等级/段位/等级/Rank/Level）\n';
+      result.debug += '[DOM] 未找到"记录等级"标签\n';
     }
 
-    // 兜底：整页文本匹配
+    // 兜底：整页文本匹配"记录等级"右侧内容
     if (!result.pageLevel) {
       const text = document.body.innerText || '';
-      const m = text.match(/(?:记录等级|段位|等级|Rank|Level)\s*[：:]?\s*([^\n\t]{1,20})/i);
+      const m = text.match(/记录等级\s*[：:]?\s*([^\n\t]{1,20})/);
       if (m) {
         result.pageLevel = clean(m[1]);
         result.debug += '[TEXT] 匹配到: ' + JSON.stringify(m[0]) + '\n';
