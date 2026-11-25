@@ -3,12 +3,15 @@ layout: default
 title: M-League 前日战绩
 ---
 
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🀄</text></svg>">
+
 <style>
   body {
-    max-width: 860px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 20px;
     font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Microsoft YaHei", sans-serif;
+    font-size: 17px;
   }
   .ml-head {
     display: flex;
@@ -17,50 +20,50 @@ title: M-League 前日战绩
     margin: 24px 0 4px;
   }
   .ml-head h1 {
-    font-size: 22px;
+    font-size: 26px;
     margin: 0;
-    padding-left: 10px;
+    padding-left: 12px;
     border-left: 4px solid #5b7bd5;
   }
-  .ml-head a { font-size: 13px; color: #5b7bd5; text-decoration: none; }
+  .ml-head a { font-size: 15px; color: #5b7bd5; text-decoration: none; }
   .ml-head a:hover { text-decoration: underline; }
   .ml-date {
-    font-size: 13px;
+    font-size: 15px;
     color: #888;
     margin-bottom: 18px;
   }
   .ml-sub {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
-    margin: 22px 0 8px;
+    margin: 24px 0 10px;
     color: #444;
   }
-  .ml-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  .ml-table th, .ml-table td { padding: 6px 10px; text-align: left; border-bottom: 1px solid #eee; }
-  .ml-table th { color: #888; font-weight: 500; font-size: 12px; }
+  .ml-table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  .ml-table th, .ml-table td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #eee; }
+  .ml-table th { color: #888; font-weight: 500; font-size: 14px; }
   .ml-table td.num, .ml-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
   .ml-badge {
-    width: 18px;
-    height: 18px;
-    vertical-align: -4px;
-    margin-right: 6px;
+    width: 28px;
+    height: 28px;
+    vertical-align: -8px;
+    margin-right: 8px;
     object-fit: contain;
   }
   .ml-two {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
   }
   .ml-mvp {
-    font-size: 14px;
+    font-size: 16px;
     background: #f5f7fb;
     border-radius: 8px;
-    padding: 10px 14px;
-    margin-top: 16px;
+    padding: 12px 16px;
+    margin-top: 18px;
   }
   .ml-mvp b { color: #b3261e; }
-  .ml-empty { color: #888; font-size: 14px; padding: 8px 0; }
-  .ml-error { color: #b3261e; font-size: 14px; padding: 8px 0; }
+  .ml-empty { color: #888; font-size: 16px; padding: 8px 0; }
+  .ml-error { color: #b3261e; font-size: 16px; padding: 8px 0; }
 </style>
 
 <div class="ml-head">
