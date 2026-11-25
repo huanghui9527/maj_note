@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-25T06:16:10.117Z",
+  "fetchedAt": "2026-11-25T08:31:49.827Z",
   "date": "2026-11-24",
   "hasGames": true,
   "gamesCount": 4,
@@ -13,24 +13,28 @@
           "rank": 1,
           "name": "勝又 健志",
           "team": "EX風林火山",
+          "img": "/assets/media/img/common/furinkazan-square-20261101.png",
           "point": 90.3
         },
         {
           "rank": 2,
           "name": "竹内 元太",
           "team": "セガサミーフェニックス",
+          "img": "/wp/wp-content/uploads/2018/09/5.png",
           "point": 8
         },
         {
           "rank": 3,
           "name": "黒沢 咲",
           "team": "TEAM RAIDEN / 雷電",
+          "img": "/wp/wp-content/uploads/2018/09/6.png",
           "point": -37.4
         },
         {
           "rank": 4,
           "name": "松本 吉弘",
           "team": "渋谷ABEMAS",
+          "img": "/wp/wp-content/uploads/2018/09/4.png",
           "point": -60.9
         }
       ]
@@ -44,24 +48,28 @@
           "rank": 1,
           "name": "醍醐 大",
           "team": "セガサミーフェニックス",
+          "img": "/wp/wp-content/uploads/2018/09/5.png",
           "point": 106.7
         },
         {
           "rank": 2,
           "name": "瀬戸熊 直樹",
           "team": "TEAM RAIDEN / 雷電",
+          "img": "/wp/wp-content/uploads/2018/09/6.png",
           "point": -10
         },
         {
           "rank": 3,
           "name": "多井 隆晴",
           "team": "渋谷ABEMAS",
+          "img": "/wp/wp-content/uploads/2018/09/4.png",
           "point": -32
         },
         {
           "rank": 4,
           "name": "永井 孝典",
           "team": "EX風林火山",
+          "img": "/assets/media/img/common/furinkazan-square-20261101.png",
           "point": -64.7
         }
       ]
@@ -75,24 +83,28 @@
           "rank": 1,
           "name": "渡辺 太",
           "team": "赤坂ドリブンズ",
+          "img": "/wp/wp-content/uploads/2018/09/1.png",
           "point": 59.7
         },
         {
           "rank": 2,
           "name": "HIRO 柴田",
           "team": "EARTH JETS",
+          "img": "/wp/wp-content/uploads/2025/08/jets.png",
           "point": 15.7
         },
         {
           "rank": 3,
           "name": "下石 戟",
           "team": "BEAST X",
+          "img": "/wp/wp-content/uploads/2023/07/beast-2.png",
           "point": -21.9
         },
         {
           "rank": 4,
           "name": "堀 慎吾",
           "team": "KADOKAWAサクラナイツ",
+          "img": "/wp/wp-content/uploads/2019/09/a11b4bb3ba448d1fa402ac3dc62cc91f.png",
           "point": -53.5
         }
       ]
@@ -106,24 +118,28 @@
           "rank": 1,
           "name": "園田 賢",
           "team": "赤坂ドリブンズ",
+          "img": "/wp/wp-content/uploads/2018/09/1.png",
           "point": 71.2
         },
         {
           "rank": 2,
           "name": "逢川 恵夢",
           "team": "EARTH JETS",
+          "img": "/wp/wp-content/uploads/2025/08/jets.png",
           "point": 16.5
         },
         {
           "rank": 3,
           "name": "鈴木 大介",
           "team": "BEAST X",
+          "img": "/wp/wp-content/uploads/2023/07/beast-2.png",
           "point": -20.1
         },
         {
           "rank": 4,
           "name": "阿久津 翔太",
           "team": "KADOKAWAサクラナイツ",
+          "img": "/wp/wp-content/uploads/2019/09/a11b4bb3ba448d1fa402ac3dc62cc91f.png",
           "point": -67.6
         }
       ]
@@ -132,6 +148,7 @@
   "teamDay": [
     {
       "team": "赤坂ドリブンズ",
+      "img": "/wp/wp-content/uploads/2018/09/1.png",
       "points": 130.9,
       "games": 2,
       "tops": 2,
@@ -139,6 +156,7 @@
     },
     {
       "team": "セガサミーフェニックス",
+      "img": "/wp/wp-content/uploads/2018/09/5.png",
       "points": 114.7,
       "games": 2,
       "tops": 1,
@@ -146,6 +164,7 @@
     },
     {
       "team": "EARTH JETS",
+      "img": "/wp/wp-content/uploads/2025/08/jets.png",
       "points": 32.2,
       "games": 2,
       "tops": 0,
@@ -153,6 +172,7 @@
     },
     {
       "team": "EX風林火山",
+      "img": "/assets/media/img/common/furinkazan-square-20261101.png",
       "points": 25.6,
       "games": 2,
       "tops": 1,
@@ -160,6 +180,7 @@
     },
     {
       "team": "BEAST X",
+      "img": "/wp/wp-content/uploads/2023/07/beast-2.png",
       "points": -42,
       "games": 2,
       "tops": 0,
@@ -167,6 +188,7 @@
     },
     {
       "team": "TEAM RAIDEN / 雷電",
+      "img": "/wp/wp-content/uploads/2018/09/6.png",
       "points": -47.4,
       "games": 2,
       "tops": 0,
@@ -174,6 +196,7 @@
     },
     {
       "team": "渋谷ABEMAS",
+      "img": "/wp/wp-content/uploads/2018/09/4.png",
       "points": -92.9,
       "games": 2,
       "tops": 0,
@@ -181,6 +204,7 @@
     },
     {
       "team": "KADOKAWAサクラナイツ",
+      "img": "/wp/wp-content/uploads/2019/09/a11b4bb3ba448d1fa402ac3dc62cc91f.png",
       "points": -121.1,
       "games": 2,
       "tops": 0,
@@ -190,6 +214,7 @@
   "dayMVP": {
     "name": "醍醐 大",
     "team": "セガサミーフェニックス",
+    "img": "/wp/wp-content/uploads/2018/09/5.png",
     "point": 106.7
   },
   "standings": {
@@ -197,60 +222,70 @@
       {
         "rank": 1,
         "name": "KADOKAWAサクラナイツ",
+        "img": "/wp/wp-content/uploads/2019/09/a11b4bb3ba448d1fa402ac3dc62cc91f.png",
         "points": 481.3,
         "games": 64
       },
       {
         "rank": 2,
         "name": "セガサミーフェニックス",
+        "img": "/wp/wp-content/uploads/2018/09/5.png",
         "points": 347.9,
         "games": 64
       },
       {
         "rank": 3,
         "name": "赤坂ドリブンズ",
+        "img": "/wp/wp-content/uploads/2018/09/1.png",
         "points": 315,
         "games": 64
       },
       {
         "rank": 4,
         "name": "TEAM RAIDEN / 雷電",
+        "img": "/wp/wp-content/uploads/2018/09/6.png",
         "points": 120.3,
         "games": 64
       },
       {
         "rank": 5,
         "name": "KONAMI 麻雀格闘倶楽部",
+        "img": "/wp/wp-content/uploads/2018/09/konami.png",
         "points": 39.5,
         "games": 64
       },
       {
         "rank": 6,
         "name": "EARTH JETS",
+        "img": "/wp/wp-content/uploads/2025/08/jets.png",
         "points": -132.5,
         "games": 64
       },
       {
         "rank": 7,
         "name": "BEAST X",
+        "img": "/wp/wp-content/uploads/2023/07/beast-2.png",
         "points": -137.9,
         "games": 64
       },
       {
         "rank": 8,
         "name": "U-NEXT Pirates",
+        "img": "/wp/wp-content/uploads/2018/09/pirates_500_500.png",
         "points": -253.9,
         "games": 64
       },
       {
         "rank": 9,
         "name": "EX風林火山",
+        "img": "/assets/media/img/common/furinkazan-square-20261101.png",
         "points": -290,
         "games": 64
       },
       {
         "rank": 10,
         "name": "渋谷ABEMAS",
+        "img": "/wp/wp-content/uploads/2018/09/4.png",
         "points": -489.7,
         "games": 64
       }

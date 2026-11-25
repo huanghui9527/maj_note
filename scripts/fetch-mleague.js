@@ -35,7 +35,7 @@ async function getJSON(kind) {
   const teams = {};
   for (const g of dayGames) {
     for (const p of g.players || []) {
-      const t = (teams[p.team] ||= { team: p.team, points: 0, games: 0, tops: 0, lasts: 0 });
+      const t = (teams[p.team] ||= { team: p.team, img: p.teamImage || '', points: 0, games: 0, tops: 0, lasts: 0 });
       t.points += p.point;
       t.games += 1;
       if (p.rank === 1) t.tops += 1;
@@ -68,12 +68,12 @@ async function getJSON(kind) {
       players: (g.players || [])
         .slice()
         .sort((a, b) => a.rank - b.rank)
-        .map((p) => ({ rank: p.rank, name: p.name, team: p.team, point: round1(p.point) })),
+        .map((p) => ({ rank: p.rank, name: p.name, team: p.team, img: p.teamImage || '', point: round1(p.point) })),
     })),
     teamDay,
-    dayMVP: mvp && { name: mvp.name, team: mvp.team, point: round1(mvp.point) },
+    dayMVP: mvp && { name: mvp.name, team: mvp.team, img: mvp.teamImage || '', point: round1(mvp.point) },
     standings: {
-      teams: (r.teams || []).map((t) => ({ rank: t.rank, name: t.name, points: t.points, games: t.games })),
+      teams: (r.teams || []).map((t) => ({ rank: t.rank, name: t.name, img: t.image || '', points: t.points, games: t.games })),
       players: ((scoreGroup && scoreGroup.rows) || []).map((p) => ({ rank: p.rank, name: p.name, points: p.value })),
     },
   };
