@@ -1,0 +1,461 @@
+{
+  "fetchedAt": "2026-11-25T06:16:10.117Z",
+  "date": "2026-11-24",
+  "hasGames": true,
+  "gamesCount": 4,
+  "games": [
+    {
+      "id": "L001_S025_0042_01A",
+      "desk": 0,
+      "no": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "勝又 健志",
+          "team": "EX風林火山",
+          "point": 90.3
+        },
+        {
+          "rank": 2,
+          "name": "竹内 元太",
+          "team": "セガサミーフェニックス",
+          "point": 8
+        },
+        {
+          "rank": 3,
+          "name": "黒沢 咲",
+          "team": "TEAM RAIDEN / 雷電",
+          "point": -37.4
+        },
+        {
+          "rank": 4,
+          "name": "松本 吉弘",
+          "team": "渋谷ABEMAS",
+          "point": -60.9
+        }
+      ]
+    },
+    {
+      "id": "L001_S025_0042_02A",
+      "desk": 0,
+      "no": 2,
+      "players": [
+        {
+          "rank": 1,
+          "name": "醍醐 大",
+          "team": "セガサミーフェニックス",
+          "point": 106.7
+        },
+        {
+          "rank": 2,
+          "name": "瀬戸熊 直樹",
+          "team": "TEAM RAIDEN / 雷電",
+          "point": -10
+        },
+        {
+          "rank": 3,
+          "name": "多井 隆晴",
+          "team": "渋谷ABEMAS",
+          "point": -32
+        },
+        {
+          "rank": 4,
+          "name": "永井 孝典",
+          "team": "EX風林火山",
+          "point": -64.7
+        }
+      ]
+    },
+    {
+      "id": "L001_S025_0042_01B",
+      "desk": 1,
+      "no": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "渡辺 太",
+          "team": "赤坂ドリブンズ",
+          "point": 59.7
+        },
+        {
+          "rank": 2,
+          "name": "HIRO 柴田",
+          "team": "EARTH JETS",
+          "point": 15.7
+        },
+        {
+          "rank": 3,
+          "name": "下石 戟",
+          "team": "BEAST X",
+          "point": -21.9
+        },
+        {
+          "rank": 4,
+          "name": "堀 慎吾",
+          "team": "KADOKAWAサクラナイツ",
+          "point": -53.5
+        }
+      ]
+    },
+    {
+      "id": "L001_S025_0042_02B",
+      "desk": 1,
+      "no": 2,
+      "players": [
+        {
+          "rank": 1,
+          "name": "園田 賢",
+          "team": "赤坂ドリブンズ",
+          "point": 71.2
+        },
+        {
+          "rank": 2,
+          "name": "逢川 恵夢",
+          "team": "EARTH JETS",
+          "point": 16.5
+        },
+        {
+          "rank": 3,
+          "name": "鈴木 大介",
+          "team": "BEAST X",
+          "point": -20.1
+        },
+        {
+          "rank": 4,
+          "name": "阿久津 翔太",
+          "team": "KADOKAWAサクラナイツ",
+          "point": -67.6
+        }
+      ]
+    }
+  ],
+  "teamDay": [
+    {
+      "team": "赤坂ドリブンズ",
+      "points": 130.9,
+      "games": 2,
+      "tops": 2,
+      "lasts": 0
+    },
+    {
+      "team": "セガサミーフェニックス",
+      "points": 114.7,
+      "games": 2,
+      "tops": 1,
+      "lasts": 0
+    },
+    {
+      "team": "EARTH JETS",
+      "points": 32.2,
+      "games": 2,
+      "tops": 0,
+      "lasts": 0
+    },
+    {
+      "team": "EX風林火山",
+      "points": 25.6,
+      "games": 2,
+      "tops": 1,
+      "lasts": 1
+    },
+    {
+      "team": "BEAST X",
+      "points": -42,
+      "games": 2,
+      "tops": 0,
+      "lasts": 0
+    },
+    {
+      "team": "TEAM RAIDEN / 雷電",
+      "points": -47.4,
+      "games": 2,
+      "tops": 0,
+      "lasts": 0
+    },
+    {
+      "team": "渋谷ABEMAS",
+      "points": -92.9,
+      "games": 2,
+      "tops": 0,
+      "lasts": 1
+    },
+    {
+      "team": "KADOKAWAサクラナイツ",
+      "points": -121.1,
+      "games": 2,
+      "tops": 0,
+      "lasts": 2
+    }
+  ],
+  "dayMVP": {
+    "name": "醍醐 大",
+    "team": "セガサミーフェニックス",
+    "point": 106.7
+  },
+  "standings": {
+    "teams": [
+      {
+        "rank": 1,
+        "name": "KADOKAWAサクラナイツ",
+        "points": 481.3,
+        "games": 64
+      },
+      {
+        "rank": 2,
+        "name": "セガサミーフェニックス",
+        "points": 347.9,
+        "games": 64
+      },
+      {
+        "rank": 3,
+        "name": "赤坂ドリブンズ",
+        "points": 315,
+        "games": 64
+      },
+      {
+        "rank": 4,
+        "name": "TEAM RAIDEN / 雷電",
+        "points": 120.3,
+        "games": 64
+      },
+      {
+        "rank": 5,
+        "name": "KONAMI 麻雀格闘倶楽部",
+        "points": 39.5,
+        "games": 64
+      },
+      {
+        "rank": 6,
+        "name": "EARTH JETS",
+        "points": -132.5,
+        "games": 64
+      },
+      {
+        "rank": 7,
+        "name": "BEAST X",
+        "points": -137.9,
+        "games": 64
+      },
+      {
+        "rank": 8,
+        "name": "U-NEXT Pirates",
+        "points": -253.9,
+        "games": 64
+      },
+      {
+        "rank": 9,
+        "name": "EX風林火山",
+        "points": -290,
+        "games": 64
+      },
+      {
+        "rank": 10,
+        "name": "渋谷ABEMAS",
+        "points": -489.7,
+        "games": 64
+      }
+    ],
+    "players": [
+      {
+        "rank": 1,
+        "name": "本田 朋広",
+        "points": 478.9
+      },
+      {
+        "rank": 2,
+        "name": "瀬戸熊 直樹",
+        "points": 430.4
+      },
+      {
+        "rank": 3,
+        "name": "岡田 紗佳",
+        "points": 291.2
+      },
+      {
+        "rank": 4,
+        "name": "HIRO 柴田",
+        "points": 286.5
+      },
+      {
+        "rank": 5,
+        "name": "醍醐 大",
+        "points": 286.3
+      },
+      {
+        "rank": 6,
+        "name": "尻無濱 航",
+        "points": 207.9
+      },
+      {
+        "rank": 7,
+        "name": "渡辺 太",
+        "points": 206.5
+      },
+      {
+        "rank": 8,
+        "name": "勝又 健志",
+        "points": 160.3
+      },
+      {
+        "rank": 9,
+        "name": "佐野 ひなこ",
+        "points": 157.1
+      },
+      {
+        "rank": 10,
+        "name": "堀 慎吾",
+        "points": 156.6
+      },
+      {
+        "rank": 11,
+        "name": "東城 りお",
+        "points": 123.4
+      },
+      {
+        "rank": 12,
+        "name": "鈴木 たろう",
+        "points": 114
+      },
+      {
+        "rank": 13,
+        "name": "浅見 真紀",
+        "points": 90.3
+      },
+      {
+        "rank": 14,
+        "name": "高宮 まり",
+        "points": 84.5
+      },
+      {
+        "rank": 15,
+        "name": "仲林 圭",
+        "points": 57.4
+      },
+      {
+        "rank": 16,
+        "name": "佐々木 寿人",
+        "points": 35
+      },
+      {
+        "rank": 17,
+        "name": "茅森 早香",
+        "points": 34.9
+      },
+      {
+        "rank": 18,
+        "name": "鈴木 大介",
+        "points": 34.1
+      },
+      {
+        "rank": 19,
+        "name": "滝沢 和典",
+        "points": 9
+      },
+      {
+        "rank": 20,
+        "name": "多井 隆晴",
+        "points": -7.5
+      },
+      {
+        "rank": 21,
+        "name": "松本 吉弘",
+        "points": -10.5
+      },
+      {
+        "rank": 22,
+        "name": "鈴木 優",
+        "points": -17.5
+      },
+      {
+        "rank": 23,
+        "name": "二階堂 亜樹",
+        "points": -63.9
+      },
+      {
+        "rank": 24,
+        "name": "逢川 恵夢",
+        "points": -73.1
+      },
+      {
+        "rank": 25,
+        "name": "中田 花奈",
+        "points": -73.5
+      },
+      {
+        "rank": 26,
+        "name": "伊達 朱里紗",
+        "points": -89
+      },
+      {
+        "rank": 27,
+        "name": "園田 賢",
+        "points": -95.8
+      },
+      {
+        "rank": 28,
+        "name": "三浦 智博",
+        "points": -104.4
+      },
+      {
+        "rank": 29,
+        "name": "内川 幸太郎",
+        "points": -126.7
+      },
+      {
+        "rank": 30,
+        "name": "竹内 元太",
+        "points": -130.4
+      },
+      {
+        "rank": 31,
+        "name": "朝倉 康心",
+        "points": -133.9
+      },
+      {
+        "rank": 32,
+        "name": "瑞原 明奈",
+        "points": -159.9
+      },
+      {
+        "rank": 33,
+        "name": "阿久津 翔太",
+        "points": -174.4
+      },
+      {
+        "rank": 34,
+        "name": "白鳥 翔",
+        "points": -181.9
+      },
+      {
+        "rank": 35,
+        "name": "黒沢 咲",
+        "points": -208.1
+      },
+      {
+        "rank": 36,
+        "name": "下石 戟",
+        "points": -221.9
+      },
+      {
+        "rank": 37,
+        "name": "石井 一馬",
+        "points": -241.5
+      },
+      {
+        "rank": 38,
+        "name": "永井 孝典",
+        "points": -259.7
+      },
+      {
+        "rank": 39,
+        "name": "日向 藍子",
+        "points": -289.8
+      },
+      {
+        "rank": 40,
+        "name": "萩原 聖人",
+        "points": -580.9
+      }
+    ]
+  }
+}

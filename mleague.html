@@ -1,0 +1,144 @@
+---
+layout: default
+title: M-League 前日战绩
+---
+
+<style>
+  body {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 16px;
+    font-family: -apple-system, "Segoe UI", "Hiragino Sans", "Microsoft YaHei", sans-serif;
+  }
+  .ml-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 24px 0 4px;
+  }
+  .ml-head h1 {
+    font-size: 22px;
+    margin: 0;
+    padding-left: 10px;
+    border-left: 4px solid #5b7bd5;
+  }
+  .ml-head a { font-size: 13px; color: #5b7bd5; text-decoration: none; }
+  .ml-head a:hover { text-decoration: underline; }
+  .ml-date {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 18px;
+  }
+  .ml-sub {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 22px 0 8px;
+    color: #444;
+  }
+  .ml-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .ml-table th, .ml-table td { padding: 6px 10px; text-align: left; border-bottom: 1px solid #eee; }
+  .ml-table th { color: #888; font-weight: 500; font-size: 12px; }
+  .ml-table td.num, .ml-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .ml-table tr:first-child td { color: #b3261e; font-weight: 600; }
+  .ml-table tr:last-child td { color: #1a5fb4; }
+  .ml-two {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .ml-mvp {
+    font-size: 14px;
+    background: #f5f7fb;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 16px;
+  }
+  .ml-mvp b { color: #b3261e; }
+  .ml-empty { color: #888; font-size: 14px; padding: 8px 0; }
+  .ml-error { color: #b3261e; font-size: 14px; padding: 8px 0; }
+</style>
+
+<div class="ml-head">
+  <h1>M-League 前日战绩</h1>
+  <a href="https://m-league.jp/games" target="_blank">官网 ↗</a>
+</div>
+<div class="ml-date" id="ml-date"></div>
+<div id="ml-body"><div class="ml-empty">读取中…</div></div>
+
+<script>
+(async function () {
+  const body = document.getElementById("ml-body");
+  const dateEl = document.getElementById("ml-date");
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+  let d = null;
+  try {
+    const r = await fetch("mleague.json?v=" + Date.now());
+    if (r.ok) d = await r.json();
+  } catch (e) {}
+  if (!d) {
+    body.innerHTML = `<div class="ml-error">mleague.json 读取失败（由 GitHub Actions 定时抓取生成，需与页面同目录部署）</div>`;
+    return;
+  }
+
+  dateEl.textContent = `数据时间：${d.fetchedAt ? d.fetchedAt.slice(0, 16).replace("T", " ") : "-"} UTC`;
+
+  const fmt = (n) => (n > 0 ? "+" + n : String(n));
+  let html = `<div class="ml-sub">${esc(d.date)}（日本时间）${d.hasGames ? ` · 共${d.gamesCount}試合` : ""}</div>`;
+
+  if (!d.hasGames) {
+    html += `<div class="ml-empty">前一日无比赛</div>`;
+  } else {
+    // 各卓逐局结果（按卓分组）
+    const desks = [...new Set(d.games.map((g) => g.desk))].sort();
+    for (const desk of desks) {
+      const gs = d.games.filter((g) => g.desk === desk);
+      const label = desk === 0 ? "A卓" : desk === 1 ? "B卓" : `卓${desk}`;
+      html += `<div class="ml-sub">${label}</div>`;
+      html += gs.map((g) => `
+        <table class="ml-table">
+          <tr><th>第${g.no}試合</th><th>队伍</th><th class="num">pt</th></tr>
+          ${g.players.map((p) => `
+            <tr>
+              <td>${p.rank}位 ${esc(p.name)}</td>
+              <td>${esc(p.team)}</td>
+              <td class="num">${fmt(p.point)}</td>
+            </tr>`).join("")}
+        </table>`).join("");
+    }
+    // 当日队伍合计
+    html += `<div class="ml-sub">当日队伍合计</div>
+      <table class="ml-table">
+        <tr><th>队伍</th><th class="num">pt</th><th class="num">1着</th><th class="num">4着</th></tr>
+        ${d.teamDay.map((t) => `
+          <tr>
+            <td>${esc(t.team)}</td>
+            <td class="num">${fmt(t.points)}</td>
+            <td class="num">${t.tops}</td>
+            <td class="num">${t.lasts}</td>
+          </tr>`).join("")}
+      </table>`;
+    if (d.dayMVP) {
+      html += `<div class="ml-mvp">当日最佳：<b>${esc(d.dayMVP.name)}</b>（${esc(d.dayMVP.team)}）${fmt(d.dayMVP.point)} pt</div>`;
+    }
+    // 赛季排名（两栏：队伍全量 + 个人 Top10）
+    if (d.standings && d.standings.teams && d.standings.teams.length) {
+      html += `<div class="ml-sub">赛季排名</div>
+        <div class="ml-two">
+          <table class="ml-table">
+            <tr><th colspan="3">队伍</th></tr>
+            ${d.standings.teams.map((t) => `
+              <tr><td>${t.rank}</td><td>${esc(t.name)}</td><td class="num">${fmt(t.points)}</td></tr>`).join("")}
+          </table>
+          <table class="ml-table">
+            <tr><th colspan="3">个人スコア Top10</th></tr>
+            ${d.standings.players.slice(0, 10).map((p) => `
+              <tr><td>${p.rank}</td><td>${esc(p.name)}</td><td class="num">${fmt(p.points)}</td></tr>`).join("")}
+          </table>
+        </div>`;
+    }
+  }
+  body.innerHTML = html;
+})();
+</script>
