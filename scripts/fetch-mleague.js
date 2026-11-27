@@ -21,6 +21,126 @@ async function getJSON(kind) {
   return j;
 }
 
+// ---------- 麻雀ウォッチ（mj-news.net）逐把明细 ----------
+// 每场比赛的スタッツ页（https://mj-news.net/mleague/games/日期-a1 等）含：
+//   内嵌 JSON：四人座位顺序与每局结束持点（相邻差值即该把得点失点）
+//   <li> 明细：每把和了者/ツモ・ロン/点数/役/符翻，或流局与テンパイ名单
+const MJW = { headers: { 'User-Agent': 'Mozilla/5.0' } };
+const stripTags = (h) => h.replace(/<[^>]+>/g, ' ').trim();
+const normName = (s) => s.replace(/\s+/g, '');
+
+// 从月度日程页找指定日期所有比赛的スタッツ页链接
+async function mjStatsLinks(date) {
+  const html = await fetch(`https://mj-news.net/mleague/schedule/${date.slice(0, 7)}`, MJW).then((r) => r.text());
+  const out = [];
+  for (const m of html.matchAll(/href="(https:\/\/mj-news\.net\/mleague\/games\/(\d{4}-\d{2}-\d{2})-[ab]\d)"/g)) {
+    if (m[2] === date && !out.includes(m[1])) out.push(m[1]);
+  }
+  return out;
+}
+
+// 解析一场比赛的逐把数据
+function parseMJStats(html) {
+  const pm =
+    html.match(/<div class="progwrap">[\s\S]*?<script type=['"]application\/json['"]>([\s\S]*?)<\/script>/) ||
+    html.match(/<script type=['"]application\/json['"]>([\s\S]*?)<\/script>/);
+  if (!pm) return null;
+  const prog = JSON.parse(pm[1]);
+  const seats = prog.teams.map((t) => t[0]); // 東南西北座位顺序
+  const hands = [];
+  for (let k = 1; k < prog.v.length; k++) {
+    hands.push({ kyoku: prog.dates[k] || `#${k}`, delta: prog.v[k].map((x, i) => x - prog.v[k - 1][i]) });
+  }
+
+  // 逐把明细（和了/流局），按局名归组（ダブロン时同一局有多条）
+  const byKyoku = {};
+  for (const lm of html.matchAll(/<li>([\s\S]*?)<\/li>/g)) {
+    const seg = lm[1];
+    const hl = seg.match(/class="hl">([^<]+)</);
+    if (!hl) continue;
+    const ev = {};
+    const winner = seg.match(/<b>([^<]+)<\/b>/);
+    const hend = (seg.match(/class="hend[^"]*">([^<]+)</) || [])[1];
+    if (winner) {
+      ev.winner = winner[1];
+      ev.type = hend || '';
+      const hpt = seg.match(/class="hpt">([^<]+)</);
+      if (hpt) ev.points = parseInt(hpt[1].replace(/,/g, ''), 10);
+      const hy = seg.match(/class="hy">([\s\S]*?)<\/small>/);
+      if (hy) {
+        const yaku = [...hy[1].matchAll(/<span>([^<]+)<\/span>/g)].map((m) => m[1]);
+        if (yaku.length) ev.yaku = yaku.join('・');
+        const hf = hy[1].match(/class="hf">([^<]+)</);
+        if (hf) ev.fu = hf[1];
+      }
+    } else {
+      ev.type = hend || '流局';
+      const htp = seg.match(/class="htp">([^<]+)</);
+      if (htp) ev.tenpai = htp[1].replace(/^テンパイ\s*/, '');
+    }
+    (byKyoku[hl[1]] ||= []).push(ev);
+  }
+  for (const h of hands) if (byKyoku[h.kyoku]) h.events = byKyoku[h.kyoku];
+
+  // 个人统计（和了/放銃/リーチ/副露/最高打点）
+  let playerStats;
+  try {
+    const i = html.indexOf('アガリ');
+    const start = i > 0 ? html.lastIndexOf('<table', i) : -1;
+    const end = i > 0 ? html.indexOf('</table>', i) : -1;
+    if (start >= 0 && end > i) {
+      const rows = [];
+      for (const rm of html.slice(start, end).matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)) {
+        const nm = rm[1].match(/class="pname"[^>]*>([^<]+)</);
+        if (!nm) continue;
+        const cells = [...rm[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((x) => stripTags(x[1]));
+        const nums = cells.filter((c) => /^[0-9,]+$|^[-—]+$/.test(c));
+        const seat = cells.find((c) => /^[東南西北]$/.test(c));
+        rows.push({ name: nm[1], seat, agari: nums[0], houjuu: nums[1], riichi: nums[2], furu: nums[3], max: nums[4] });
+      }
+      if (rows.length === 4) playerStats = rows;
+    }
+  } catch (e) {}
+
+  return {
+    nameKey: seats.map(normName).sort().join('|'),
+    seats,
+    hands,
+    playerStats,
+  };
+}
+
+// 为官方当日比赛匹配逐把明细（按四位选手姓名集合匹配）
+async function attachPerHand(games, date) {
+  let links;
+  try {
+    links = await mjStatsLinks(date);
+  } catch (e) {
+    console.log(`mj-news 日程页获取失败：${e.message}（跳过逐把明细）`);
+    return;
+  }
+  const parsed = [];
+  for (const url of links) {
+    try {
+      const html = await fetch(url, MJW).then((r) => r.text());
+      const st = parseMJStats(html);
+      if (st) parsed.push({ url, ...st });
+    } catch (e) {
+      console.log(`mj-news スタッツ页获取失败 ${url}：${e.message}`);
+    }
+  }
+  let matched = 0;
+  for (const g of games) {
+    const key = (g.players || []).map((p) => normName(p.name)).sort().join('|');
+    const hit = parsed.find((s) => s.nameKey === key);
+    if (hit) {
+      Object.assign(g, { statsUrl: hit.url, seats: hit.seats, hands: hit.hands, playerStats: hit.playerStats });
+      matched++;
+    }
+  }
+  return matched;
+}
+
 (async () => {
   const games = await getJSON('games');
   const ranking = await getJSON('ranking');
@@ -46,6 +166,10 @@ async function getJSON(kind) {
     .map((t) => ({ ...t, points: round1(t.points) }))
     .sort((a, b) => b.points - a.points);
 
+  // 逐把明细（麻雀ウォッチ，失败时自动跳过，不影响主数据）
+  const matched = (await attachPerHand(dayGames, yesterday)) || 0;
+  if (matched) console.log(`已匹配 ${matched} 场逐把明细`);
+
   // 当日个人最佳（单局最高得分）
   const allPlayers = dayGames.flatMap((g) =>
     (g.players || []).map((p) => ({ ...p, desk: g.desk, no: g.no }))
@@ -69,6 +193,7 @@ async function getJSON(kind) {
         .slice()
         .sort((a, b) => a.rank - b.rank)
         .map((p) => ({ rank: p.rank, name: p.name, team: p.team, img: p.teamImage || '', point: round1(p.point) })),
+      ...(g.hands ? { statsUrl: g.statsUrl, seats: g.seats, hands: g.hands, playerStats: g.playerStats } : {}),
     })),
     teamDay,
     dayMVP: mvp && { name: mvp.name, team: mvp.team, img: mvp.teamImage || '', point: round1(mvp.point) },
