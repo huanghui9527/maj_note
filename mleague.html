@@ -134,7 +134,7 @@ title: M-League 前日战绩
     if (d.dayMVP) {
       html += `<div class="ml-mvp">当日最佳：<b>${esc(d.dayMVP.name)}</b>（${badge(d.dayMVP.img)}${esc(d.dayMVP.team)}）${fmt(d.dayMVP.point)} pt</div>`;
     }
-    // 赛季排名（两栏：队伍全量 + 个人 Top10）
+    // 赛季排名（两栏：队伍全量 + 个人全量）
     if (d.standings && d.standings.teams && d.standings.teams.length) {
       html += `<div class="ml-sub">赛季排名</div>
         <div class="ml-two">
@@ -144,8 +144,8 @@ title: M-League 前日战绩
               <tr><td>${t.rank}</td><td>${badge(t.img)}${esc(t.name)}</td><td class="num">${fmt(t.points)}</td></tr>`).join("")}
           </table>
           <table class="ml-table">
-            <tr><th colspan="3">个人スコア Top10</th></tr>
-            ${d.standings.players.slice(0, 10).map((p) => `
+            <tr><th colspan="3">个人スコア</th></tr>
+            ${d.standings.players.map((p) => `
               <tr><td>${p.rank}</td><td>${esc(p.name)}</td><td class="num">${fmt(p.points)}</td></tr>`).join("")}
           </table>
         </div>`;
