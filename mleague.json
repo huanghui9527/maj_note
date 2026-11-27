@@ -1,84 +1,96 @@
 {
-  "fetchedAt": "2026-11-27T07:21:11.009Z",
-  "date": "2026-11-26",
+  "fetchedAt": "2026-11-27T15:57:41.811Z",
+  "date": "2026-11-27",
   "hasGames": true,
   "gamesCount": 4,
   "games": [
     {
-      "id": "L001_S025_0043_01A",
+      "id": "L001_S025_0044_01A",
       "desk": 0,
       "no": 1,
       "players": [
         {
           "rank": 1,
-          "name": "日向 藍子",
-          "team": "渋谷ABEMAS",
-          "img": "/wp/wp-content/uploads/2018/09/4.png",
-          "point": 86.8
+          "name": "朝倉 康心",
+          "team": "U-NEXT Pirates",
+          "img": "/wp/wp-content/uploads/2018/09/pirates_500_500.png",
+          "point": 54.8
         },
         {
           "rank": 2,
-          "name": "阿久津 翔太",
-          "team": "KADOKAWAサクラナイツ",
-          "img": "/wp/wp-content/uploads/2019/09/a11b4bb3ba448d1fa402ac3dc62cc91f.png",
-          "point": -0.6
+          "name": "HIRO 柴田",
+          "team": "EARTH JETS",
+          "img": "/wp/wp-content/uploads/2025/08/jets.png",
+          "point": 13.3
         },
         {
           "rank": 3,
-          "name": "内川 幸太郎",
-          "team": "EX風林火山",
-          "img": "/assets/media/img/common/furinkazan-square-20261101.png",
-          "point": -25.8
+          "name": "竹内 元太",
+          "team": "セガサミーフェニックス",
+          "img": "/wp/wp-content/uploads/2018/09/5.png",
+          "point": -23.3
         },
         {
           "rank": 4,
-          "name": "中田 花奈",
+          "name": "下石 戟",
           "team": "BEAST X",
           "img": "/wp/wp-content/uploads/2023/07/beast-2.png",
-          "point": -60.4
+          "point": -44.8
         }
       ],
-      "statsUrl": "https://mj-news.net/mleague/games/2026-11-26-a1",
+      "statsUrl": "https://mj-news.net/mleague/games/2026-11-27-a1",
       "seats": [
-        "中田花奈",
-        "日向藍子",
-        "内川幸太郎",
-        "阿久津翔太"
+        "朝倉康心",
+        "下石戟",
+        "竹内元太",
+        "HIRO柴田"
       ],
       "hands": [
         {
           "kyoku": "東1局",
           "delta": [
-            0,
-            0,
             -1000,
-            1000
+            2000,
+            -1000,
+            -1000
           ],
           "events": [
             {
-              "winner": "阿久津翔太",
-              "type": "ロン",
-              "points": 1000,
-              "yaku": "役牌 北",
-              "fu": "30符1翻"
+              "type": "流局",
+              "tenpai": "下石戟"
             }
           ]
         },
         {
-          "kyoku": "東2局",
+          "kyoku": "東2局1本場",
           "delta": [
-            -700,
-            -1300,
-            -700,
-            2700
+            -1000,
+            3000,
+            -1000,
+            -1000
           ],
           "events": [
             {
-              "winner": "阿久津翔太",
-              "type": "ツモ",
-              "points": 2700,
-              "yaku": "リーチ・ツモ・ピンフ",
-              "fu": "20符3翻"
+              "type": "流局",
+              "tenpai": "下石戟"
+            }
+          ]
+        },
+        {
+          "kyoku": "東2局2本場",
+          "delta": [
+            4600,
+            -1000,
+            0,
+            -2600
+          ],
+          "events": [
+            {
+              "winner": "朝倉康心",
+              "type": "ロン",
+              "points": 2000,
+              "yaku": "リーチ・ピンフ",
+              "fu": "30符2翻"
             }
           ]
         },
@@ -86,42 +98,96 @@
           "kyoku": "東3局",
           "delta": [
             0,
-            0,
-            -2000,
-            2000
+            8000,
+            -8000,
+            0
           ],
           "events": [
             {
-              "winner": "阿久津翔太",
+              "winner": "下石戟",
               "type": "ロン",
-              "points": 2000,
-              "yaku": "三色同順・ドラ1",
-              "fu": "30符2翻"
+              "points": 8000,
+              "yaku": "リーチ・ピンフ・一発・裏1",
+              "fu": "30符4翻"
             }
           ]
         },
         {
           "kyoku": "東4局",
           "delta": [
-            -1000,
-            4000,
-            -1000,
-            -2000
+            0,
+            0,
+            2600,
+            -2600
           ],
           "events": [
             {
-              "winner": "日向藍子",
-              "type": "ツモ",
-              "points": 4000,
-              "yaku": "リーチ・ツモ・タンヤオ",
-              "fu": "30符3翻"
+              "winner": "竹内元太",
+              "type": "ロン",
+              "points": 2600,
+              "yaku": "役牌 中・赤1",
+              "fu": "40符2翻"
             }
           ]
         },
         {
           "kyoku": "南1局",
           "delta": [
-            500,
+            -1000,
+            2000,
+            -500,
+            -500
+          ],
+          "events": [
+            {
+              "winner": "下石戟",
+              "type": "ツモ",
+              "points": 2000,
+              "yaku": "タンヤオ・ドラ1",
+              "fu": "30符2翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南2局",
+          "delta": [
+            13000,
+            -13000,
+            0,
+            0
+          ],
+          "events": [
+            {
+              "winner": "朝倉康心",
+              "type": "ロン",
+              "points": 12000,
+              "yaku": "リーチ・ピンフ・ドラ2・赤2",
+              "fu": "30符6翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南3局",
+          "delta": [
+            -2600,
+            -3600,
+            8800,
+            -2600
+          ],
+          "events": [
+            {
+              "winner": "竹内元太",
+              "type": "ツモ",
+              "points": 7800,
+              "yaku": "リーチ・ツモ・ピンフ・裏1",
+              "fu": "20符4翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南3局1本場",
+          "delta": [
+            1500,
             -1500,
             -1500,
             1500
@@ -129,191 +195,239 @@
           "events": [
             {
               "type": "流局",
-              "tenpai": "中田花奈・阿久津翔太"
+              "tenpai": "朝倉康心・HIRO柴田"
             }
           ]
         },
         {
-          "kyoku": "南1局1本場",
+          "kyoku": "南4局2本場",
           "delta": [
-            -6100,
-            13300,
-            -3100,
-            -3100
+            -6200,
+            -6200,
+            -6200,
+            18600
           ],
           "events": [
             {
-              "winner": "日向藍子",
+              "winner": "HIRO柴田",
               "type": "ツモ",
-              "points": 12000,
-              "yaku": "リーチ・ツモ・ドラ1・赤1・裏3",
-              "fu": "30符7翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南2局",
-          "delta": [
-            -4000,
-            12000,
-            -4000,
-            -4000
-          ],
-          "events": [
-            {
-              "winner": "日向藍子",
-              "type": "ツモ",
-              "points": 12000,
-              "yaku": "役牌 白・役牌 中・赤2",
-              "fu": "30符4翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南2局1本場",
-          "delta": [
-            0,
-            0,
-            1600,
-            -1600
-          ],
-          "events": [
-            {
-              "winner": "内川幸太郎",
-              "type": "ロン",
-              "points": 1300,
-              "yaku": "リーチ",
-              "fu": "40符1翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南3局",
-          "delta": [
-            -1000,
-            -1000,
-            3000,
-            -1000
-          ],
-          "events": [
-            {
-              "winner": "内川幸太郎",
-              "type": "ツモ",
-              "points": 3000,
-              "yaku": "ホンイツ",
-              "fu": "30符2翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南3局1本場",
-          "delta": [
-            -1100,
-            4300,
-            -2100,
-            -1100
-          ],
-          "events": [
-            {
-              "winner": "日向藍子",
-              "type": "ツモ",
-              "points": 4000,
-              "yaku": "リーチ・ツモ・役牌 中",
-              "fu": "30符3翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南4局",
-          "delta": [
-            -12000,
-            12000,
-            0,
-            0
-          ],
-          "events": [
-            {
-              "winner": "日向藍子",
-              "type": "ロン",
-              "points": 12000,
-              "yaku": "ピンフ・三色同順・ドラ2・赤1",
+              "points": 18000,
+              "yaku": "リーチ・ツモ・一発・三色同順・ドラ1",
               "fu": "30符6翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南4局3本場",
+          "delta": [
+            1500,
+            500,
+            -1500,
+            -1500
+          ],
+          "events": [
+            {
+              "type": "流局",
+              "tenpai": "朝倉康心・下石戟"
             }
           ]
         }
       ]
     },
     {
-      "id": "L001_S025_0043_02A",
+      "id": "L001_S025_0044_02A",
       "desk": 0,
       "no": 2,
       "players": [
         {
           "rank": 1,
-          "name": "鈴木 大介",
-          "team": "BEAST X",
-          "img": "/wp/wp-content/uploads/2023/07/beast-2.png",
-          "point": 60.2
+          "name": "三浦 智博",
+          "team": "EARTH JETS",
+          "img": "/wp/wp-content/uploads/2025/08/jets.png",
+          "point": 100.7
         },
         {
           "rank": 2,
-          "name": "二階堂 亜樹",
-          "team": "EX風林火山",
-          "img": "/assets/media/img/common/furinkazan-square-20261101.png",
-          "point": 8
+          "name": "鈴木 優",
+          "team": "U-NEXT Pirates",
+          "img": "/wp/wp-content/uploads/2018/09/pirates_500_500.png",
+          "point": 7.8
         },
         {
           "rank": 3,
-          "name": "日向 藍子",
-          "team": "渋谷ABEMAS",
-          "img": "/wp/wp-content/uploads/2018/09/4.png",
-          "point": -17.7
+          "name": "茅森 早香",
+          "team": "セガサミーフェニックス",
+          "img": "/wp/wp-content/uploads/2018/09/5.png",
+          "point": -28.2
         },
         {
           "rank": 4,
-          "name": "尻無濱 航",
-          "team": "KADOKAWAサクラナイツ",
-          "img": "/wp/wp-content/uploads/2019/09/a11b4bb3ba448d1fa402ac3dc62cc91f.png",
-          "point": -50.5
+          "name": "東城 りお",
+          "team": "BEAST X",
+          "img": "/wp/wp-content/uploads/2023/07/beast-2.png",
+          "point": -80.3
         }
       ],
-      "statsUrl": "https://mj-news.net/mleague/games/2026-11-26-a2",
+      "statsUrl": "https://mj-news.net/mleague/games/2026-11-27-a2",
       "seats": [
-        "尻無濱航",
-        "日向藍子",
-        "二階堂亜樹",
-        "鈴木大介"
+        "東城りお",
+        "茅森早香",
+        "三浦智博",
+        "鈴木優"
       ],
       "hands": [
         {
           "kyoku": "東1局",
           "delta": [
-            -8000,
-            8000,
             0,
-            0
+            0,
+            6400,
+            -6400
           ],
           "events": [
             {
-              "winner": "日向藍子",
+              "winner": "三浦智博",
               "type": "ロン",
-              "points": 8000,
-              "yaku": "タンヤオ・イーペーコー・ドラ1・赤1",
-              "fu": "40符4翻"
+              "points": 6400,
+              "yaku": "リーチ・チートイツ・赤1",
+              "fu": "25符4翻"
             }
           ]
         },
         {
           "kyoku": "東2局",
           "delta": [
+            -5200,
+            -1000,
             0,
-            -2000,
-            0,
-            2000
+            6200
           ],
           "events": [
             {
-              "winner": "鈴木大介",
+              "winner": "鈴木優",
+              "type": "ロン",
+              "points": 5200,
+              "yaku": "リーチ・ドラ1・赤1",
+              "fu": "40符3翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東3局",
+          "delta": [
+            -500,
+            -500,
+            1500,
+            -500
+          ],
+          "events": [
+            {
+              "winner": "三浦智博",
+              "type": "ツモ",
+              "points": 1500,
+              "yaku": "役牌 白",
+              "fu": "30符1翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東3局1本場",
+          "delta": [
+            -6100,
+            -6100,
+            19300,
+            -7100
+          ],
+          "events": [
+            {
+              "winner": "三浦智博",
+              "type": "ツモ",
+              "points": 18000,
+              "yaku": "リーチ・ツモ・ピンフ・ドラ2・赤1・裏1",
+              "fu": "20符7翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東3局2本場",
+          "delta": [
+            -1000,
+            -1000,
+            2000,
+            -1000
+          ],
+          "events": [
+            {
+              "type": "流局",
+              "tenpai": "三浦智博"
+            }
+          ]
+        },
+        {
+          "kyoku": "東3局3本場",
+          "delta": [
+            -8900,
+            0,
+            0,
+            9900
+          ],
+          "events": [
+            {
+              "winner": "鈴木優",
+              "type": "ロン",
+              "points": 8000,
+              "yaku": "リーチ・ピンフ・一発・ドラ2",
+              "fu": "30符5翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東4局",
+          "delta": [
+            -5800,
+            0,
+            0,
+            5800
+          ],
+          "events": [
+            {
+              "winner": "鈴木優",
+              "type": "ロン",
+              "points": 5800,
+              "yaku": "ダブ東・赤1",
+              "fu": "30符3翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東4局1本場",
+          "delta": [
+            9300,
+            -2100,
+            -2100,
+            -5100
+          ],
+          "events": [
+            {
+              "winner": "東城りお",
+              "type": "ツモ",
+              "points": 8000,
+              "yaku": "リーチ・ツモ・役牌 白・赤1",
+              "fu": "30符4翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南1局",
+          "delta": [
+            0,
+            -1000,
+            1000,
+            0
+          ],
+          "events": [
+            {
+              "winner": "三浦智博",
               "type": "ロン",
               "points": 1000,
               "yaku": "役牌 中",
@@ -322,101 +436,576 @@
           ]
         },
         {
-          "kyoku": "東3局",
-          "delta": [
-            -3000,
-            1000,
-            1000,
-            1000
-          ],
-          "events": [
-            {
-              "type": "流局",
-              "tenpai": "日向藍子・二階堂亜樹・鈴木大介"
-            }
-          ]
-        },
-        {
-          "kyoku": "東3局1本場",
-          "delta": [
-            500,
-            -1500,
-            -1500,
-            500
-          ],
-          "events": [
-            {
-              "type": "流局",
-              "tenpai": "尻無濱航・鈴木大介"
-            }
-          ]
-        },
-        {
-          "kyoku": "東4局2本場",
-          "delta": [
-            0,
-            6500,
-            0,
-            -4500
-          ],
-          "events": [
-            {
-              "winner": "日向藍子",
-              "type": "ロン",
-              "points": 3900,
-              "yaku": "役牌 西・ドラ2",
-              "fu": "30符3翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南1局",
-          "delta": [
-            -6000,
-            -3000,
-            -3000,
-            12000
-          ],
-          "events": [
-            {
-              "winner": "鈴木大介",
-              "type": "ツモ",
-              "points": 12000,
-              "yaku": "リーチ・ツモ・ドラ3・赤1",
-              "fu": "30符6翻"
-            }
-          ]
-        },
-        {
           "kyoku": "南2局",
           "delta": [
+            -13000,
+            13000,
             0,
-            -5200,
-            0,
-            5200
+            0
           ],
           "events": [
             {
-              "winner": "鈴木大介",
+              "winner": "茅森早香",
               "type": "ロン",
-              "points": 5200,
-              "yaku": "役牌 南・トイトイ",
-              "fu": "40符3翻"
+              "points": 12000,
+              "yaku": "リーチ・タンヤオ・赤1・裏1",
+              "fu": "40符4翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南2局1本場",
+          "delta": [
+            6700,
+            -6700,
+            0,
+            0
+          ],
+          "events": [
+            {
+              "winner": "東城りお",
+              "type": "ロン",
+              "points": 6400,
+              "yaku": "リーチ・一発・ドラ1",
+              "fu": "50符3翻"
             }
           ]
         },
         {
           "kyoku": "南3局",
           "delta": [
-            2000,
-            -1000,
-            -1000,
-            -1000
+            -13000,
+            0,
+            13000,
+            0
+          ],
+          "events": [
+            {
+              "winner": "三浦智博",
+              "type": "ロン",
+              "points": 12000,
+              "yaku": "リーチ・裏3",
+              "fu": "40符4翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南3局1本場",
+          "delta": [
+            -6100,
+            -6100,
+            18300,
+            -6100
+          ],
+          "events": [
+            {
+              "winner": "三浦智博",
+              "type": "ツモ",
+              "points": 18000,
+              "yaku": "リーチ・ツモ・ピンフ・三色同順・ドラ2",
+              "fu": "20符7翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南3局2本場",
+          "delta": [
+            -2200,
+            -2200,
+            -4200,
+            8600
+          ],
+          "events": [
+            {
+              "winner": "鈴木優",
+              "type": "ツモ",
+              "points": 8000,
+              "yaku": "リーチ・ツモ・タンヤオ・赤1・裏1",
+              "fu": "30符5翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南4局",
+          "delta": [
+            500,
+            500,
+            -1500,
+            -1500
           ],
           "events": [
             {
               "type": "流局",
-              "tenpai": "尻無濱航"
+              "tenpai": "東城りお・茅森早香"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L001_S025_0044_01B",
+      "desk": 1,
+      "no": 1,
+      "players": [
+        {
+          "rank": 1,
+          "name": "尻無濱 航",
+          "team": "KADOKAWAサクラナイツ",
+          "img": "/wp/wp-content/uploads/2019/09/a11b4bb3ba448d1fa402ac3dc62cc91f.png",
+          "point": 67.8
+        },
+        {
+          "rank": 2,
+          "name": "松本 吉弘",
+          "team": "渋谷ABEMAS",
+          "img": "/wp/wp-content/uploads/2018/09/4.png",
+          "point": 22.3
+        },
+        {
+          "rank": 3,
+          "name": "佐々木 寿人",
+          "team": "KONAMI 麻雀格闘倶楽部",
+          "img": "/wp/wp-content/uploads/2018/09/konami.png",
+          "point": -34.8
+        },
+        {
+          "rank": 4,
+          "name": "浅見 真紀",
+          "team": "赤坂ドリブンズ",
+          "img": "/wp/wp-content/uploads/2018/09/1.png",
+          "point": -55.3
+        }
+      ],
+      "statsUrl": "https://mj-news.net/mleague/games/2026-11-27-b1",
+      "seats": [
+        "佐々木寿人",
+        "尻無濱航",
+        "浅見真紀",
+        "松本吉弘"
+      ],
+      "hands": [
+        {
+          "kyoku": "東1局",
+          "delta": [
+            2500,
+            -2500,
+            0,
+            0
+          ],
+          "events": [
+            {
+              "winner": "佐々木寿人",
+              "type": "ロン",
+              "points": 1500,
+              "yaku": "役牌 白",
+              "fu": "30符1翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東1局1本場",
+          "delta": [
+            -9300,
+            0,
+            0,
+            9300
+          ],
+          "events": [
+            {
+              "winner": "松本吉弘",
+              "type": "ロン",
+              "points": 8000,
+              "yaku": "リーチ・一気通貫・ドラ1",
+              "fu": "40符4翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東2局",
+          "delta": [
+            -3200,
+            9600,
+            -3200,
+            -3200
+          ],
+          "events": [
+            {
+              "winner": "尻無濱航",
+              "type": "ツモ",
+              "points": 9600,
+              "yaku": "役牌 發・ドラ1・赤1",
+              "fu": "50符3翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東2局1本場",
+          "delta": [
+            -500,
+            -800,
+            -500,
+            1800
+          ],
+          "events": [
+            {
+              "winner": "松本吉弘",
+              "type": "ツモ",
+              "points": 1500,
+              "yaku": "役牌 白",
+              "fu": "40符1翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東3局",
+          "delta": [
+            -4000,
+            16000,
+            -8000,
+            -4000
+          ],
+          "events": [
+            {
+              "winner": "尻無濱航",
+              "type": "ツモ",
+              "points": 16000,
+              "yaku": "リーチ・ツモ・役牌 北・ドラ1・赤1・裏3",
+              "fu": "30符8翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東4局",
+          "delta": [
+            0,
+            -3900,
+            0,
+            3900
+          ],
+          "events": [
+            {
+              "winner": "松本吉弘",
+              "type": "ロン",
+              "points": 3900,
+              "yaku": "リーチ・ドラ1",
+              "fu": "40符2翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東4局1本場",
+          "delta": [
+            -1000,
+            -1000,
+            -1000,
+            3000
+          ],
+          "events": [
+            {
+              "type": "流局",
+              "tenpai": "松本吉弘"
+            }
+          ]
+        },
+        {
+          "kyoku": "東4局2本場",
+          "delta": [
+            1500,
+            1500,
+            -1500,
+            -1500
+          ],
+          "events": [
+            {
+              "type": "流局",
+              "tenpai": "佐々木寿人・尻無濱航"
+            }
+          ]
+        },
+        {
+          "kyoku": "南1局3本場",
+          "delta": [
+            0,
+            6100,
+            -6100,
+            0
+          ],
+          "events": [
+            {
+              "winner": "尻無濱航",
+              "type": "ロン",
+              "points": 5200,
+              "yaku": "リーチ・ドラ1・裏1",
+              "fu": "40符3翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南2局",
+          "delta": [
+            -8000,
+            0,
+            0,
+            8000
+          ],
+          "events": [
+            {
+              "winner": "松本吉弘",
+              "type": "ロン",
+              "points": 8000,
+              "yaku": "タンヤオ・ドラ2・赤1",
+              "fu": "30符4翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南3局",
+          "delta": [
+            -1000,
+            1000,
+            0,
+            0
+          ],
+          "events": [
+            {
+              "winner": "尻無濱航",
+              "type": "ロン",
+              "points": 1000,
+              "yaku": "役牌 北",
+              "fu": "30符1翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南4局",
+          "delta": [
+            3200,
+            -3200,
+            0,
+            0
+          ],
+          "events": [
+            {
+              "winner": "佐々木寿人",
+              "type": "ロン",
+              "points": 3200,
+              "yaku": "チートイツ・赤1",
+              "fu": "25符3翻"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L001_S025_0044_02B",
+      "desk": 1,
+      "no": 2,
+      "players": [
+        {
+          "rank": 1,
+          "name": "堀 慎吾",
+          "team": "KADOKAWAサクラナイツ",
+          "img": "/wp/wp-content/uploads/2019/09/a11b4bb3ba448d1fa402ac3dc62cc91f.png",
+          "point": 85.2
+        },
+        {
+          "rank": 2,
+          "name": "渡辺 太",
+          "team": "赤坂ドリブンズ",
+          "img": "/wp/wp-content/uploads/2018/09/1.png",
+          "point": 3.8
+        },
+        {
+          "rank": 3,
+          "name": "多井 隆晴",
+          "team": "渋谷ABEMAS",
+          "img": "/wp/wp-content/uploads/2018/09/4.png",
+          "point": -18
+        },
+        {
+          "rank": 4,
+          "name": "滝沢 和典",
+          "team": "KONAMI 麻雀格闘倶楽部",
+          "img": "/wp/wp-content/uploads/2018/09/konami.png",
+          "point": -71
+        }
+      ],
+      "statsUrl": "https://mj-news.net/mleague/games/2026-11-27-b2",
+      "seats": [
+        "渡辺太",
+        "滝沢和典",
+        "多井隆晴",
+        "堀慎吾"
+      ],
+      "hands": [
+        {
+          "kyoku": "東1局",
+          "delta": [
+            -4000,
+            -2000,
+            8000,
+            -2000
+          ],
+          "events": [
+            {
+              "winner": "多井隆晴",
+              "type": "ツモ",
+              "points": 8000,
+              "yaku": "リーチ・ツモ・タンヤオ・ドラ1・赤1",
+              "fu": "30符5翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東2局",
+          "delta": [
+            -1000,
+            -2000,
+            -1000,
+            4000
+          ],
+          "events": [
+            {
+              "winner": "堀慎吾",
+              "type": "ツモ",
+              "points": 4000,
+              "yaku": "リーチ・ツモ・タンヤオ",
+              "fu": "30符3翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東3局",
+          "delta": [
+            0,
+            -3000,
+            1000,
+            1000
+          ],
+          "events": [
+            {
+              "type": "流局",
+              "tenpai": "渡辺太・多井隆晴・堀慎吾"
+            }
+          ]
+        },
+        {
+          "kyoku": "東3局1本場",
+          "delta": [
+            -1500,
+            500,
+            -1500,
+            1500
+          ],
+          "events": [
+            {
+              "type": "流局",
+              "tenpai": "滝沢和典・堀慎吾"
+            }
+          ]
+        },
+        {
+          "kyoku": "東4局2本場",
+          "delta": [
+            -4200,
+            -4200,
+            -4200,
+            14600
+          ],
+          "events": [
+            {
+              "winner": "堀慎吾",
+              "type": "ツモ",
+              "points": 12000,
+              "yaku": "ツモ・ピンフ・タンヤオ・赤2",
+              "fu": "20符5翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "東4局3本場",
+          "delta": [
+            -800,
+            -1800,
+            3900,
+            -1300
+          ],
+          "events": [
+            {
+              "winner": "多井隆晴",
+              "type": "ツモ",
+              "points": 2000,
+              "yaku": "ツモ・赤1",
+              "fu": "30符2翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南1局",
+          "delta": [
+            18000,
+            -6000,
+            -6000,
+            -6000
+          ],
+          "events": [
+            {
+              "winner": "渡辺太",
+              "type": "ツモ",
+              "points": 18000,
+              "yaku": "リーチ・ツモ・チートイツ・赤1・裏2",
+              "fu": "25符7翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南1局1本場",
+          "delta": [
+            -16300,
+            0,
+            0,
+            16300
+          ],
+          "events": [
+            {
+              "winner": "堀慎吾",
+              "type": "ロン",
+              "points": 16000,
+              "yaku": "トイトイ・チンイツ・赤1",
+              "fu": "40符8翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南2局",
+          "delta": [
+            2000,
+            -2000,
+            0,
+            0
+          ],
+          "events": [
+            {
+              "winner": "渡辺太",
+              "type": "ロン",
+              "points": 2000,
+              "yaku": "一気通貫・赤1",
+              "fu": "30符2翻"
+            }
+          ]
+        },
+        {
+          "kyoku": "南3局",
+          "delta": [
+            -1000,
+            -1000,
+            -1000,
+            3000
+          ],
+          "events": [
+            {
+              "type": "流局",
+              "tenpai": "堀慎吾"
             }
           ]
         },
@@ -424,466 +1013,35 @@
           "kyoku": "南4局1本場",
           "delta": [
             -1000,
-            -5500,
-            7500,
-            0
-          ],
-          "events": [
-            {
-              "winner": "二階堂亜樹",
-              "type": "ロン",
-              "points": 5200,
-              "yaku": "タンヤオ・ドラ1・赤1",
-              "fu": "40符3翻"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "L001_S025_0043_01B",
-      "desk": 1,
-      "no": 1,
-      "players": [
-        {
-          "rank": 1,
-          "name": "佐々木 寿人",
-          "team": "KONAMI 麻雀格闘倶楽部",
-          "img": "/wp/wp-content/uploads/2018/09/konami.png",
-          "point": 48.2
-        },
-        {
-          "rank": 2,
-          "name": "仲林 圭",
-          "team": "U-NEXT Pirates",
-          "img": "/wp/wp-content/uploads/2018/09/pirates_500_500.png",
-          "point": 6.9
-        },
-        {
-          "rank": 3,
-          "name": "石井 一馬",
-          "team": "EARTH JETS",
-          "img": "/wp/wp-content/uploads/2025/08/jets.png",
-          "point": -17.1
-        },
-        {
-          "rank": 4,
-          "name": "本田 朋広",
-          "team": "TEAM RAIDEN / 雷電",
-          "img": "/wp/wp-content/uploads/2018/09/6.png",
-          "point": -38
-        }
-      ],
-      "statsUrl": "https://mj-news.net/mleague/games/2026-11-26-b1",
-      "seats": [
-        "本田朋広",
-        "仲林圭",
-        "佐々木寿人",
-        "石井一馬"
-      ],
-      "hands": [
-        {
-          "kyoku": "東1局",
-          "delta": [
-            -3900,
+            -12300,
             0,
-            3900,
-            0
+            13300
           ],
           "events": [
             {
-              "winner": "佐々木寿人",
+              "winner": "堀慎吾",
               "type": "ロン",
-              "points": 3900,
-              "yaku": "リーチ・ピンフ・赤1",
-              "fu": "30符3翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "東2局",
-          "delta": [
-            9000,
-            -5000,
-            -2000,
-            -2000
-          ],
-          "events": [
-            {
-              "winner": "本田朋広",
-              "type": "ツモ",
-              "points": 8000,
-              "yaku": "リーチ・ツモ・ピンフ・ドラ1・裏1",
-              "fu": "20符5翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "東3局",
-          "delta": [
-            -3000,
-            -2000,
-            -4000,
-            9000
-          ],
-          "events": [
-            {
-              "winner": "石井一馬",
-              "type": "ツモ",
-              "points": 8000,
-              "yaku": "リーチ・ツモ・役牌 中・赤1",
+              "points": 12000,
+              "yaku": "役牌 東・役牌 發・ホンイツ",
               "fu": "30符4翻"
             }
           ]
         },
         {
-          "kyoku": "東4局",
+          "kyoku": "南4局2本場",
           "delta": [
-            0,
-            0,
-            0,
-            0
+            8600,
+            -2200,
+            -2200,
+            -4200
           ],
           "events": [
             {
-              "type": "流局"
-            }
-          ]
-        },
-        {
-          "kyoku": "南1局1本場",
-          "delta": [
-            -2100,
-            -2100,
-            5300,
-            -1100
-          ],
-          "events": [
-            {
-              "winner": "佐々木寿人",
+              "winner": "渡辺太",
               "type": "ツモ",
-              "points": 4000,
-              "yaku": "ホンイツ・赤1",
-              "fu": "30符3翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南2局",
-          "delta": [
-            9000,
-            -9000,
-            0,
-            0
-          ],
-          "events": [
-            {
-              "winner": "本田朋広",
-              "type": "ロン",
               "points": 8000,
-              "yaku": "リーチ・ピンフ・ドラ1・裏2",
-              "fu": "30符5翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南3局",
-          "delta": [
-            -12000,
-            12000,
-            0,
-            0
-          ],
-          "events": [
-            {
-              "winner": "仲林圭",
-              "type": "ロン",
-              "points": 12000,
-              "yaku": "リーチ・ピンフ・三色同順・赤1・裏1",
-              "fu": "30符6翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南4局",
-          "delta": [
-            0,
-            8000,
-            0,
-            -8000
-          ],
-          "events": [
-            {
-              "winner": "仲林圭",
-              "type": "ロン",
-              "points": 8000,
-              "yaku": "リーチ・役牌 發・ドラ1・裏1",
-              "fu": "40符4翻"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "L001_S025_0043_02B",
-      "desk": 1,
-      "no": 2,
-      "players": [
-        {
-          "rank": 1,
-          "name": "伊達 朱里紗",
-          "team": "KONAMI 麻雀格闘倶楽部",
-          "img": "/wp/wp-content/uploads/2018/09/konami.png",
-          "point": 76.6
-        },
-        {
-          "rank": 2,
-          "name": "萩原 聖人",
-          "team": "TEAM RAIDEN / 雷電",
-          "img": "/wp/wp-content/uploads/2018/09/6.png",
-          "point": 34.2
-        },
-        {
-          "rank": 3,
-          "name": "逢川 恵夢",
-          "team": "EARTH JETS",
-          "img": "/wp/wp-content/uploads/2025/08/jets.png",
-          "point": -25.2
-        },
-        {
-          "rank": 4,
-          "name": "朝倉 康心",
-          "team": "U-NEXT Pirates",
-          "img": "/wp/wp-content/uploads/2018/09/pirates_500_500.png",
-          "point": -85.6
-        }
-      ],
-      "statsUrl": "https://mj-news.net/mleague/games/2026-11-26-b2",
-      "seats": [
-        "萩原聖人",
-        "伊達朱里紗",
-        "逢川恵夢",
-        "朝倉康心"
-      ],
-      "hands": [
-        {
-          "kyoku": "東1局",
-          "delta": [
-            0,
-            0,
-            -3000,
-            0
-          ],
-          "events": [
-            {
-              "type": "流局",
-              "tenpai": "萩原聖人・伊達朱里紗・朝倉康心"
-            }
-          ]
-        },
-        {
-          "kyoku": "東1局1本場",
-          "delta": [
-            1000,
-            0,
-            1000,
-            -3000
-          ],
-          "events": [
-            {
-              "type": "流局",
-              "tenpai": "萩原聖人・伊達朱里紗・逢川恵夢"
-            }
-          ]
-        },
-        {
-          "kyoku": "東1局2本場",
-          "delta": [
-            0,
-            0,
-            12600,
-            -8600
-          ],
-          "events": [
-            {
-              "winner": "逢川恵夢",
-              "type": "ロン",
-              "points": 8000,
-              "yaku": "ピンフ・イーペーコー・ドラ3",
-              "fu": "30符5翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "東2局",
-          "delta": [
-            -1500,
-            1500,
-            -1500,
-            500
-          ],
-          "events": [
-            {
-              "type": "流局",
-              "tenpai": "伊達朱里紗・朝倉康心"
-            }
-          ]
-        },
-        {
-          "kyoku": "東2局1本場",
-          "delta": [
-            -4100,
-            13300,
-            -4100,
-            -4100
-          ],
-          "events": [
-            {
-              "winner": "伊達朱里紗",
-              "type": "ツモ",
-              "points": 12000,
-              "yaku": "ダブ東・ドラ2・赤1",
-              "fu": "30符5翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "東2局2本場",
-          "delta": [
-            -6200,
-            19600,
-            -6200,
-            -7200
-          ],
-          "events": [
-            {
-              "winner": "伊達朱里紗",
-              "type": "ツモ",
-              "points": 18000,
-              "yaku": "リーチ・ツモ・ピンフ・タンヤオ・ドラ1・赤1・裏1",
-              "fu": "20符7翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "東2局3本場",
-          "delta": [
-            -1500,
-            -1500,
-            500,
-            1500
-          ],
-          "events": [
-            {
-              "type": "流局",
-              "tenpai": "逢川恵夢・朝倉康心"
-            }
-          ]
-        },
-        {
-          "kyoku": "東3局4本場",
-          "delta": [
-            0,
-            -3200,
-            -1000,
-            5200
-          ],
-          "events": [
-            {
-              "winner": "朝倉康心",
-              "type": "ロン",
-              "points": 2000,
-              "yaku": "役牌 南・ドラ1",
-              "fu": "30符2翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "東4局",
-          "delta": [
-            33000,
-            -9000,
-            -8000,
-            -16000
-          ],
-          "events": [
-            {
-              "winner": "萩原聖人",
-              "type": "ツモ",
-              "points": 32000,
-              "yaku": "四暗刻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南1局",
-          "delta": [
-            0,
-            8000,
-            0,
-            -8000
-          ],
-          "events": [
-            {
-              "winner": "伊達朱里紗",
-              "type": "ロン",
-              "points": 8000,
-              "yaku": "リーチ・ドラ2・裏1",
-              "fu": "40符4翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南2局",
-          "delta": [
-            -500,
-            -1000,
-            -500,
-            2000
-          ],
-          "events": [
-            {
-              "winner": "朝倉康心",
-              "type": "ツモ",
-              "points": 2000,
-              "yaku": "役牌 西・赤1",
-              "fu": "30符2翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南3局",
-          "delta": [
-            9000,
-            0,
-            0,
-            -9000
-          ],
-          "events": [
-            {
-              "winner": "萩原聖人",
-              "type": "ロン",
-              "points": 8000,
-              "yaku": "役牌 發・役牌 中・ホンイツ",
-              "fu": "40符4翻"
-            }
-          ]
-        },
-        {
-          "kyoku": "南4局",
-          "delta": [
-            0,
-            3900,
-            0,
-            -3900
-          ],
-          "events": [
-            {
-              "winner": "伊達朱里紗",
-              "type": "ロン",
-              "points": 3900,
-              "yaku": "リーチ・ピンフ・裏1",
-              "fu": "30符3翻"
+              "yaku": "ツモ・タンヤオ・ドラ1・赤1",
+              "fu": "30符4翻"
             }
           ]
         }
@@ -892,75 +1050,75 @@
   ],
   "teamDay": [
     {
-      "team": "KONAMI 麻雀格闘倶楽部",
-      "img": "/wp/wp-content/uploads/2018/09/konami.png",
-      "points": 124.8,
+      "team": "KADOKAWAサクラナイツ",
+      "img": "/wp/wp-content/uploads/2019/09/a11b4bb3ba448d1fa402ac3dc62cc91f.png",
+      "points": 153,
       "games": 2,
       "tops": 2,
       "lasts": 0
     },
     {
-      "team": "渋谷ABEMAS",
-      "img": "/wp/wp-content/uploads/2018/09/4.png",
-      "points": 69.1,
-      "games": 2,
-      "tops": 1,
-      "lasts": 0
-    },
-    {
-      "team": "BEAST X",
-      "img": "/wp/wp-content/uploads/2023/07/beast-2.png",
-      "points": -0.2,
-      "games": 2,
-      "tops": 1,
-      "lasts": 1
-    },
-    {
-      "team": "TEAM RAIDEN / 雷電",
-      "img": "/wp/wp-content/uploads/2018/09/6.png",
-      "points": -3.8,
-      "games": 2,
-      "tops": 0,
-      "lasts": 1
-    },
-    {
-      "team": "EX風林火山",
-      "img": "/assets/media/img/common/furinkazan-square-20261101.png",
-      "points": -17.8,
-      "games": 2,
-      "tops": 0,
-      "lasts": 0
-    },
-    {
       "team": "EARTH JETS",
       "img": "/wp/wp-content/uploads/2025/08/jets.png",
-      "points": -42.3,
+      "points": 114,
       "games": 2,
-      "tops": 0,
+      "tops": 1,
       "lasts": 0
-    },
-    {
-      "team": "KADOKAWAサクラナイツ",
-      "img": "/wp/wp-content/uploads/2019/09/a11b4bb3ba448d1fa402ac3dc62cc91f.png",
-      "points": -51.1,
-      "games": 2,
-      "tops": 0,
-      "lasts": 1
     },
     {
       "team": "U-NEXT Pirates",
       "img": "/wp/wp-content/uploads/2018/09/pirates_500_500.png",
-      "points": -78.7,
+      "points": 62.6,
+      "games": 2,
+      "tops": 1,
+      "lasts": 0
+    },
+    {
+      "team": "渋谷ABEMAS",
+      "img": "/wp/wp-content/uploads/2018/09/4.png",
+      "points": 4.3,
+      "games": 2,
+      "tops": 0,
+      "lasts": 0
+    },
+    {
+      "team": "セガサミーフェニックス",
+      "img": "/wp/wp-content/uploads/2018/09/5.png",
+      "points": -51.5,
+      "games": 2,
+      "tops": 0,
+      "lasts": 0
+    },
+    {
+      "team": "赤坂ドリブンズ",
+      "img": "/wp/wp-content/uploads/2018/09/1.png",
+      "points": -51.5,
       "games": 2,
       "tops": 0,
       "lasts": 1
+    },
+    {
+      "team": "KONAMI 麻雀格闘倶楽部",
+      "img": "/wp/wp-content/uploads/2018/09/konami.png",
+      "points": -105.8,
+      "games": 2,
+      "tops": 0,
+      "lasts": 1
+    },
+    {
+      "team": "BEAST X",
+      "img": "/wp/wp-content/uploads/2023/07/beast-2.png",
+      "points": -125.1,
+      "games": 2,
+      "tops": 0,
+      "lasts": 2
     }
   ],
   "dayMVP": {
-    "name": "日向 藍子",
-    "team": "渋谷ABEMAS",
-    "img": "/wp/wp-content/uploads/2018/09/4.png",
-    "point": 86.8
+    "name": "三浦 智博",
+    "team": "EARTH JETS",
+    "img": "/wp/wp-content/uploads/2025/08/jets.png",
+    "point": 100.7
   },
   "standings": {
     "teams": [
@@ -968,71 +1126,71 @@
         "rank": 1,
         "name": "KADOKAWAサクラナイツ",
         "img": "/wp/wp-content/uploads/2019/09/a11b4bb3ba448d1fa402ac3dc62cc91f.png",
-        "points": 430.2,
-        "games": 66
+        "points": 583.2,
+        "games": 68
       },
       {
         "rank": 2,
         "name": "セガサミーフェニックス",
         "img": "/wp/wp-content/uploads/2018/09/5.png",
-        "points": 347.9,
-        "games": 64
+        "points": 296.4,
+        "games": 66
       },
       {
         "rank": 3,
         "name": "赤坂ドリブンズ",
         "img": "/wp/wp-content/uploads/2018/09/1.png",
-        "points": 315,
-        "games": 64
-      },
-      {
-        "rank": 4,
-        "name": "KONAMI 麻雀格闘倶楽部",
-        "img": "/wp/wp-content/uploads/2018/09/konami.png",
-        "points": 164.3,
+        "points": 263.5,
         "games": 66
       },
       {
-        "rank": 5,
+        "rank": 4,
         "name": "TEAM RAIDEN / 雷電",
         "img": "/wp/wp-content/uploads/2018/09/6.png",
         "points": 116.5,
         "games": 66
       },
       {
+        "rank": 5,
+        "name": "KONAMI 麻雀格闘倶楽部",
+        "img": "/wp/wp-content/uploads/2018/09/konami.png",
+        "points": 58.5,
+        "games": 68
+      },
+      {
         "rank": 6,
-        "name": "BEAST X",
-        "img": "/wp/wp-content/uploads/2023/07/beast-2.png",
-        "points": -138.1,
-        "games": 66
+        "name": "EARTH JETS",
+        "img": "/wp/wp-content/uploads/2025/08/jets.png",
+        "points": -60.8,
+        "games": 68
       },
       {
         "rank": 7,
-        "name": "EARTH JETS",
-        "img": "/wp/wp-content/uploads/2025/08/jets.png",
-        "points": -174.8,
-        "games": 66
+        "name": "BEAST X",
+        "img": "/wp/wp-content/uploads/2023/07/beast-2.png",
+        "points": -263.2,
+        "games": 68
       },
       {
         "rank": 8,
+        "name": "U-NEXT Pirates",
+        "img": "/wp/wp-content/uploads/2018/09/pirates_500_500.png",
+        "points": -270,
+        "games": 68
+      },
+      {
+        "rank": 9,
         "name": "EX風林火山",
         "img": "/assets/media/img/common/furinkazan-square-20261101.png",
         "points": -307.8,
         "games": 66
       },
       {
-        "rank": 9,
-        "name": "U-NEXT Pirates",
-        "img": "/wp/wp-content/uploads/2018/09/pirates_500_500.png",
-        "points": -332.6,
-        "games": 66
-      },
-      {
         "rank": 10,
         "name": "渋谷ABEMAS",
         "img": "/wp/wp-content/uploads/2018/09/4.png",
-        "points": -420.6,
-        "games": 66
+        "points": -416.3,
+        "games": 68
       }
     ],
     "players": [
@@ -1048,13 +1206,13 @@
       },
       {
         "rank": 3,
-        "name": "岡田 紗佳",
-        "points": 291.2
+        "name": "HIRO 柴田",
+        "points": 299.8
       },
       {
         "rank": 4,
-        "name": "HIRO 柴田",
-        "points": 286.5
+        "name": "岡田 紗佳",
+        "points": 291.2
       },
       {
         "rank": 5,
@@ -1063,83 +1221,83 @@
       },
       {
         "rank": 6,
-        "name": "渡辺 太",
-        "points": 206.5
+        "name": "堀 慎吾",
+        "points": 241.8
       },
       {
         "rank": 7,
+        "name": "尻無濱 航",
+        "points": 225.2
+      },
+      {
+        "rank": 8,
+        "name": "渡辺 太",
+        "points": 210.3
+      },
+      {
+        "rank": 9,
         "name": "勝又 健志",
         "points": 160.3
       },
       {
-        "rank": 8,
-        "name": "尻無濱 航",
-        "points": 157.4
-      },
-      {
-        "rank": 9,
+        "rank": 10,
         "name": "佐野 ひなこ",
         "points": 157.1
       },
       {
-        "rank": 10,
-        "name": "堀 慎吾",
-        "points": 156.6
-      },
-      {
         "rank": 11,
-        "name": "東城 りお",
-        "points": 123.4
-      },
-      {
-        "rank": 12,
         "name": "鈴木 たろう",
         "points": 114
       },
       {
-        "rank": 13,
+        "rank": 12,
         "name": "鈴木 大介",
         "points": 94.3
       },
       {
-        "rank": 14,
-        "name": "浅見 真紀",
-        "points": 90.3
-      },
-      {
-        "rank": 15,
+        "rank": 13,
         "name": "高宮 まり",
         "points": 84.5
       },
       {
-        "rank": 16,
-        "name": "佐々木 寿人",
-        "points": 83.2
-      },
-      {
-        "rank": 17,
+        "rank": 14,
         "name": "仲林 圭",
         "points": 64.3
       },
       {
+        "rank": 15,
+        "name": "佐々木 寿人",
+        "points": 48.4
+      },
+      {
+        "rank": 16,
+        "name": "東城 りお",
+        "points": 43.1
+      },
+      {
+        "rank": 17,
+        "name": "浅見 真紀",
+        "points": 35
+      },
+      {
         "rank": 18,
-        "name": "茅森 早香",
-        "points": 34.9
+        "name": "松本 吉弘",
+        "points": 11.8
       },
       {
         "rank": 19,
-        "name": "滝沢 和典",
-        "points": 9
+        "name": "茅森 早香",
+        "points": 6.7
       },
       {
         "rank": 20,
-        "name": "多井 隆晴",
-        "points": -7.5
+        "name": "三浦 智博",
+        "points": -3.7
       },
       {
         "rank": 21,
-        "name": "松本 吉弘",
-        "points": -10.5
+        "name": "鈴木 優",
+        "points": -9.7
       },
       {
         "rank": 22,
@@ -1148,8 +1306,8 @@
       },
       {
         "rank": 23,
-        "name": "鈴木 優",
-        "points": -17.5
+        "name": "多井 隆晴",
+        "points": -25.5
       },
       {
         "rank": 24,
@@ -1158,33 +1316,33 @@
       },
       {
         "rank": 25,
+        "name": "滝沢 和典",
+        "points": -62
+      },
+      {
+        "rank": 26,
         "name": "園田 賢",
         "points": -95.8
       },
       {
-        "rank": 26,
+        "rank": 27,
         "name": "逢川 恵夢",
         "points": -98.3
       },
       {
-        "rank": 27,
-        "name": "三浦 智博",
-        "points": -104.4
-      },
-      {
         "rank": 28,
-        "name": "竹内 元太",
-        "points": -130.4
-      },
-      {
-        "rank": 29,
         "name": "中田 花奈",
         "points": -133.9
       },
       {
-        "rank": 30,
+        "rank": 29,
         "name": "内川 幸太郎",
         "points": -152.5
+      },
+      {
+        "rank": 30,
+        "name": "竹内 元太",
+        "points": -153.7
       },
       {
         "rank": 31,
@@ -1193,23 +1351,23 @@
       },
       {
         "rank": 32,
+        "name": "朝倉 康心",
+        "points": -164.7
+      },
+      {
+        "rank": 33,
         "name": "阿久津 翔太",
         "points": -175
       },
       {
-        "rank": 33,
+        "rank": 34,
         "name": "白鳥 翔",
         "points": -181.9
       },
       {
-        "rank": 34,
+        "rank": 35,
         "name": "黒沢 咲",
         "points": -208.1
-      },
-      {
-        "rank": 35,
-        "name": "朝倉 康心",
-        "points": -219.5
       },
       {
         "rank": 36,
@@ -1218,18 +1376,18 @@
       },
       {
         "rank": 37,
-        "name": "下石 戟",
-        "points": -221.9
-      },
-      {
-        "rank": 38,
         "name": "石井 一馬",
         "points": -258.6
       },
       {
-        "rank": 39,
+        "rank": 38,
         "name": "永井 孝典",
         "points": -259.7
+      },
+      {
+        "rank": 39,
+        "name": "下石 戟",
+        "points": -266.7
       },
       {
         "rank": 40,
