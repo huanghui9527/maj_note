@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-27T06:43:27.338Z",
+  "fetchedAt": "2026-11-27T07:21:11.009Z",
   "date": "2026-11-26",
   "hasGames": true,
   "gamesCount": 4,
@@ -241,40 +241,6 @@
             }
           ]
         }
-      ],
-      "playerStats": [
-        {
-          "name": "中田花奈",
-          "agari": "0",
-          "houjuu": "1",
-          "riichi": "1",
-          "furu": "4",
-          "max": "—"
-        },
-        {
-          "name": "日向藍子",
-          "agari": "5",
-          "houjuu": "0",
-          "riichi": "3",
-          "furu": "3",
-          "max": "12000"
-        },
-        {
-          "name": "内川幸太郎",
-          "agari": "2",
-          "houjuu": "2",
-          "riichi": "1",
-          "furu": "3",
-          "max": "3000"
-        },
-        {
-          "name": "阿久津翔太",
-          "agari": "3",
-          "houjuu": "1",
-          "riichi": "1",
-          "furu": "3",
-          "max": "2700"
-        }
       ]
     },
     {
@@ -472,40 +438,6 @@
             }
           ]
         }
-      ],
-      "playerStats": [
-        {
-          "name": "尻無濱航",
-          "agari": "0",
-          "houjuu": "1",
-          "riichi": "3",
-          "furu": "1",
-          "max": "—"
-        },
-        {
-          "name": "日向藍子",
-          "agari": "2",
-          "houjuu": "3",
-          "riichi": "1",
-          "furu": "2",
-          "max": "8000"
-        },
-        {
-          "name": "二階堂亜樹",
-          "agari": "1",
-          "houjuu": "0",
-          "riichi": "0",
-          "furu": "1",
-          "max": "5200"
-        },
-        {
-          "name": "鈴木大介",
-          "agari": "3",
-          "houjuu": "1",
-          "riichi": "2",
-          "furu": "3",
-          "max": "12000"
-        }
       ]
     },
     {
@@ -689,40 +621,6 @@
               "fu": "40符4翻"
             }
           ]
-        }
-      ],
-      "playerStats": [
-        {
-          "name": "本田朋広",
-          "agari": "2",
-          "houjuu": "2",
-          "riichi": "3",
-          "furu": "2",
-          "max": "8000"
-        },
-        {
-          "name": "仲林圭",
-          "agari": "2",
-          "houjuu": "1",
-          "riichi": "5",
-          "furu": "0",
-          "max": "12000"
-        },
-        {
-          "name": "佐々木寿人",
-          "agari": "2",
-          "houjuu": "0",
-          "riichi": "1",
-          "furu": "1",
-          "max": "4000"
-        },
-        {
-          "name": "石井一馬",
-          "agari": "1",
-          "houjuu": "1",
-          "riichi": "1",
-          "furu": "0",
-          "max": "8000"
         }
       ]
     },
@@ -988,40 +886,6 @@
               "fu": "30符3翻"
             }
           ]
-        }
-      ],
-      "playerStats": [
-        {
-          "name": "萩原聖人",
-          "agari": "2",
-          "houjuu": "0",
-          "riichi": "2",
-          "furu": "6",
-          "max": "32000"
-        },
-        {
-          "name": "伊達朱里紗",
-          "agari": "4",
-          "houjuu": "1",
-          "riichi": "6",
-          "furu": "5",
-          "max": "18000"
-        },
-        {
-          "name": "逢川恵夢",
-          "agari": "1",
-          "houjuu": "0",
-          "riichi": "2",
-          "furu": "5",
-          "max": "8000"
-        },
-        {
-          "name": "朝倉康心",
-          "agari": "2",
-          "houjuu": "4",
-          "riichi": "4",
-          "furu": "4",
-          "max": "2000"
         }
       ]
     }

@@ -26,7 +26,6 @@ async function getJSON(kind) {
 //   内嵌 JSON：四人座位顺序与每局结束持点（相邻差值即该把得点失点）
 //   <li> 明细：每把和了者/ツモ・ロン/点数/役/符翻，或流局与テンパイ名单
 const MJW = { headers: { 'User-Agent': 'Mozilla/5.0' } };
-const stripTags = (h) => h.replace(/<[^>]+>/g, ' ').trim();
 const normName = (s) => s.replace(/\s+/g, '');
 
 // 从月度日程页找指定日期所有比赛的スタッツ页链接
@@ -82,31 +81,10 @@ function parseMJStats(html) {
   }
   for (const h of hands) if (byKyoku[h.kyoku]) h.events = byKyoku[h.kyoku];
 
-  // 个人统计（和了/放銃/リーチ/副露/最高打点）
-  let playerStats;
-  try {
-    const i = html.indexOf('アガリ');
-    const start = i > 0 ? html.lastIndexOf('<table', i) : -1;
-    const end = i > 0 ? html.indexOf('</table>', i) : -1;
-    if (start >= 0 && end > i) {
-      const rows = [];
-      for (const rm of html.slice(start, end).matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/g)) {
-        const nm = rm[1].match(/class="pname"[^>]*>([^<]+)</);
-        if (!nm) continue;
-        const cells = [...rm[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((x) => stripTags(x[1]));
-        const nums = cells.filter((c) => /^[0-9,]+$|^[-—]+$/.test(c));
-        const seat = cells.find((c) => /^[東南西北]$/.test(c));
-        rows.push({ name: nm[1], seat, agari: nums[0], houjuu: nums[1], riichi: nums[2], furu: nums[3], max: nums[4] });
-      }
-      if (rows.length === 4) playerStats = rows;
-    }
-  } catch (e) {}
-
   return {
     nameKey: seats.map(normName).sort().join('|'),
     seats,
     hands,
-    playerStats,
   };
 }
 
@@ -134,7 +112,7 @@ async function attachPerHand(games, date) {
     const key = (g.players || []).map((p) => normName(p.name)).sort().join('|');
     const hit = parsed.find((s) => s.nameKey === key);
     if (hit) {
-      Object.assign(g, { statsUrl: hit.url, seats: hit.seats, hands: hit.hands, playerStats: hit.playerStats });
+      Object.assign(g, { statsUrl: hit.url, seats: hit.seats, hands: hit.hands });
       matched++;
     }
   }
@@ -193,7 +171,7 @@ async function attachPerHand(games, date) {
         .slice()
         .sort((a, b) => a.rank - b.rank)
         .map((p) => ({ rank: p.rank, name: p.name, team: p.team, img: p.teamImage || '', point: round1(p.point) })),
-      ...(g.hands ? { statsUrl: g.statsUrl, seats: g.seats, hands: g.hands, playerStats: g.playerStats } : {}),
+      ...(g.hands ? { statsUrl: g.statsUrl, seats: g.seats, hands: g.hands } : {}),
     })),
     teamDay,
     dayMVP: mvp && { name: mvp.name, team: mvp.team, img: mvp.teamImage || '', point: round1(mvp.point) },

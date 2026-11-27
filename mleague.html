@@ -77,10 +77,9 @@ title: M-League 前日战绩
   .ml-hands-t td, .ml-hands-t th { padding: 6px 8px; }
   .ml-kyoku { white-space: nowrap; color: #555; }
   .ml-seat-t { font-weight: 400; font-size: 12px; color: #999; }
-  .ml-pos { color: #1a7f37; }
-  .ml-neg { color: #b3261e; }
+  .ml-pos { color: #1a7f37; background: #e9f6ee; }
+  .ml-neg { color: #b3261e; background: #fdeeee; }
   .ml-ev { color: #666; font-size: 13px; }
-  .ml-stats-t { margin-top: 14px; font-size: 14px; }
   .ml-src { margin-top: 10px; font-size: 13px; color: #999; }
   .ml-src a { color: #5b7bd5; text-decoration: none; }
   .ml-src a:hover { text-decoration: underline; }
@@ -119,8 +118,8 @@ title: M-League 前日战绩
     : "";
   let html = `<div class="ml-sub">${esc(d.date)}（日本时间）${d.hasGames ? ` · 共${d.gamesCount}試合` : ""}</div>`;
 
-  // 逐局明细：原始点数差 → 千点（保留1位）
-  const handPt = (x) => { const p = Math.round(x / 100) / 10; return p ? fmt(p) : "0"; };
+  // 逐局明细：得点/失点直接用实际点数（正绿负红区分）
+  const handPt = (x) => (x > 0 ? "+" + x : String(x));
   const handEv = (ev) => {
     if (ev.winner) {
       let s = `${ev.winner} ${ev.type || ""}${ev.points ? " " + ev.points + "点" : ""}${ev.fu ? " " + ev.fu : ""}${ev.yaku ? "・" + ev.yaku : ""}`;
@@ -144,28 +143,12 @@ title: M-League 前日战绩
         `<td class="num ${x > 0 ? "ml-pos" : x < 0 ? "ml-neg" : ""}">${handPt(x)}</td>`).join("");
       return `<tr><td class="ml-kyoku">${esc(h.kyoku)}</td>${tds}<td class="ml-ev">${esc(evs || "—")}</td></tr>`;
     }).join("");
-    let stats = "";
-    if (g.playerStats && g.playerStats.length === 4) {
-      stats = `<table class="ml-table ml-stats-t">
-        <tr><th>选手</th><th class="num">和了</th><th class="num">放铳</th><th class="num">立直</th><th class="num">副露</th><th class="num">最高打点</th></tr>
-        ${g.playerStats.map((s) => `
-          <tr>
-            <td>${esc(s.name)}</td>
-            <td class="num">${esc(s.agari ?? "-")}</td>
-            <td class="num">${esc(s.houjuu ?? "-")}</td>
-            <td class="num">${esc(s.riichi ?? "-")}</td>
-            <td class="num">${esc(s.furu ?? "-")}</td>
-            <td class="num">${esc(s.max ?? "-")}</td>
-          </tr>`).join("")}
-      </table>`;
-    }
     return `<details class="ml-hands">
       <summary>逐局明细（${g.hands.length}把）</summary>
       <table class="ml-table ml-hands-t">
         <tr><th>局</th>${head}<th>明细</th></tr>
         ${rows}
       </table>
-      ${stats}
       ${g.statsUrl ? `<div class="ml-src">数据源：<a href="${esc(g.statsUrl)}" target="_blank">麻雀ウォッチ スタッツ ↗</a></div>` : ""}
     </details>`;
   };
